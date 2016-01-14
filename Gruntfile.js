@@ -1,16 +1,16 @@
 'use strict';
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------
-//                                                   ██████╗  ███████╗ ██████╗  ██╗      ███████╗  ██████╗
-//                                                   ██╔══██╗ ██╔════╝ ██╔══██╗ ██║      ██╔════╝ ██╔════╝
-//                                                   ██████╔╝ ███████╗ ██████╔╝ ██║      ███████╗ ██║
-//                                                   ██╔══██╗ ╚════██║ ██╔══██╗ ██║      ╚════██║ ██║
-//                                                   ██████╔╝ ███████║ ██████╔╝ ███████╗ ███████║ ╚██████╗
-//                                                   ╚═════╝  ╚══════╝ ╚═════╝  ╚══════╝ ╚══════╝  ╚═════╝
+//                                                                            ██████╗  ██████╗  ██████╗
+//                                                                            ██╔══██╗ ╚════██╗ ██╔══██╗
+//                                                                            ██████╔╝  █████╔╝ ██████╔╝
+//                                                                            ██╔══██╗ ██╔═══╝  ██╔══██╗
+//                                                                            ██║  ██║ ███████╗ ██║  ██║
+//                                                                            ╚═╝  ╚═╝ ╚══════╝ ╚═╝  ╚═╝
 //                                                                            Created by Dominik Wilkowski
 //
-// URL:      https://github.com/dominikwilkowski/BSBLSC
-// Issues:   https://github.com/dominikwilkowski/BSBLSC/issues
+// URL:      https://github.com/dominikwilkowski/R2R
+// Issues:   https://github.com/dominikwilkowski/R2R/issues
 //--------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
@@ -42,20 +42,21 @@ module.exports = function(grunt) {
 	//------------------------------------------------------------------------------------------------------------------------------------------------------------
 	// Dependencies
 	//------------------------------------------------------------------------------------------------------------------------------------------------------------
-	grunt.loadNpmTasks('grunt-contrib-stylus');
+	grunt.loadNpmTasks('grunt-contrib-imagemin');
 	grunt.loadNpmTasks('grunt-contrib-connect');
+	grunt.loadNpmTasks('grunt-contrib-stylus');
+	grunt.loadNpmTasks('grunt-contrib-uglify');
 	grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks('grunt-contrib-clean');
-	grunt.loadNpmTasks('grunt-contrib-uglify');
-	grunt.loadNpmTasks('grunt-contrib-imagemin');
 	grunt.loadNpmTasks('grunt-contrib-copy');
 	grunt.loadNpmTasks('grunt-text-replace');
 	grunt.loadNpmTasks('grunt-autoprefixer');
 	// grunt.loadNpmTasks('grunt-grunticon');
 	// grunt.loadNpmTasks('grunt-svgmin');
 	grunt.loadNpmTasks('grunt-shopify');
-	grunt.loadNpmTasks('grunt-font');
 	grunt.loadNpmTasks('grunt-wakeup');
+	grunt.loadNpmTasks('grunt-newer');
+	grunt.loadNpmTasks('grunt-font');
 
 
 	grunt.initConfig({
@@ -379,7 +380,7 @@ module.exports = function(grunt) {
 			},
 
 			title: {
-				text: ' BSBLSC',
+				text: ' R2R',
 			},
 		},
 
@@ -516,19 +517,19 @@ module.exports = function(grunt) {
 	]);
 
 	grunt.registerTask('fonts', [
-		'copy:Fonts',
+		'newer:copy:Fonts',
 	]);
 
 	grunt.registerTask('html', [
-		'copy:HTMLtmpConfig',
-		'copy:HTMLtmpLayout',
-		'copy:HTMLtmpSnippets',
-		'copy:HTMLtmpTemplates',
-		'replace:html',
-		'copy:HTMLconfig',
-		'copy:HTMLlayout',
-		'copy:HTMLsnippets',
-		'copy:HTMLtemplates',
+		'newer:copy:HTMLtmpConfig',
+		'newer:copy:HTMLtmpLayout',
+		'newer:copy:HTMLtmpSnippets',
+		'newer:copy:HTMLtmpTemplates',
+		'newer:replace:html',
+		'newer:copy:HTMLconfig',
+		'newer:copy:HTMLlayout',
+		'newer:copy:HTMLsnippets',
+		'newer:copy:HTMLtemplates',
 	]);
 
 
