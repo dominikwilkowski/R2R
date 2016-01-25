@@ -1,0 +1,182 @@
+[
+	{
+		"name": "Welcome",
+		"settings": [
+			{
+				"type": "paragraph",
+				"content": "If you have any issues with this theme please create an issue here: https://github.com/dominikwilkowski/R2R/issues"
+			}
+		]
+	},
+	{
+		"name": "General",
+		"settings": [
+			{
+				"type": "header",
+				"content": "Facebook"
+			},
+			{
+				"type": "checkbox",
+				"id": "social_facebook_enabled",
+				"label": "Enabled?"
+			},
+			{
+				"type": "text",
+				"id": "social_facebook",
+				"label": "URL"
+			},
+
+			{
+				"type": "header",
+				"content": "Twitter"
+			},
+			{
+				"type": "checkbox",
+				"id": "social_twitter_enabled",
+				"label": "Enabled?"
+			},
+			{
+				"type": "text",
+				"id": "social_twitter",
+				"label": "URL"
+			},
+
+			{
+				"type": "header",
+				"content": "YouTube"
+			},
+			{
+				"type": "checkbox",
+				"id": "social_youtube_enabled",
+				"label": "Enabled?"
+			},
+			{
+				"type": "text",
+				"id": "social_youtube",
+				"label": "URL"
+			},
+
+			{
+				"type": "header",
+				"content": "eMail"
+			},
+			{
+				"type": "checkbox",
+				"id": "social_email_enabled",
+				"label": "Enabled?"
+			},
+			{
+				"type": "text",
+				"id": "social_email",
+				"label": "URL"
+			}
+		]
+	},
+	{
+		"name": "Gallery",
+		"settings": [
+			{
+				"type": "header",
+				"content": "Slide #1"
+			},
+			{
+				"type": "checkbox",
+				"id": "slide_1_enabled",
+				"label": "Enabled?"
+			},
+			{
+				"type": "image",
+				"id": "slide_1_image.jpg",
+				"label": "Image",
+				"max-width": 1980,
+				"max-height": 1980
+			},
+
+			{
+				"type": "header",
+				"content": "Slide #2"
+			},
+			{
+				"type": "checkbox",
+				"id": "slide_2_enabled",
+				"label": "Enabled?"
+			},
+			{
+				"type": "image",
+				"id": "slide_2_image.jpg",
+				"label": "Image",
+				"max-width": 1980,
+				"max-height": 1980
+			},
+
+			{
+				"type": "header",
+				"content": "Slide #3"
+			},
+			{
+				"type": "checkbox",
+				"id": "slide_3_enabled",
+				"label": "Enabled?"
+			},
+			{
+				"type": "image",
+				"id": "slide_3_image.jpg",
+				"label": "Image",
+				"max-width": 1980,
+				"max-height": 1980
+			},
+
+			{
+				"type": "header",
+				"content": "Slide #4"
+			},
+			{
+				"type": "checkbox",
+				"id": "slide_4_enabled",
+				"label": "Enabled?"
+			},
+			{
+				"type": "image",
+				"id": "slide_4_image.jpg",
+				"label": "Image",
+				"max-width": 1980,
+				"max-height": 1980
+			},
+
+			{
+				"type": "header",
+				"content": "Slide #5"
+			},
+			{
+				"type": "checkbox",
+				"id": "slide_5_enabled",
+				"label": "Enabled?"
+			},
+			{
+				"type": "image",
+				"id": "slide_5_image.jpg",
+				"label": "Image",
+				"max-width": 1980,
+				"max-height": 1980
+			},
+
+			{
+				"type": "header",
+				"content": "Slide #6"
+			},
+			{
+				"type": "checkbox",
+				"id": "slide_6_enabled",
+				"label": "Enabled?"
+			},
+			{
+				"type": "image",
+				"id": "slide_6_image.jpg",
+				"label": "Image",
+				"max-width": 1980,
+				"max-height": 1980
+			}
+
+		]
+	}
+]

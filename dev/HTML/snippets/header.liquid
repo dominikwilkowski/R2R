@@ -1,0 +1,76 @@
+{% comment %}
+	This snippet prints the header
+
+	Usage:
+		{% include 'header' %}
+
+	Return:
+		HTML direct output
+
+	Required:
+		- none -
+{% endcomment %}
+
+<header>
+	<nav class="top">
+		<ul class="top-nav1 list-flat list-flat-sm">
+			<li>
+				<a href="/">home</a>
+			</li>
+			<li>
+				<a href="/pages/contact-us">contact us</a>
+			</li>
+			{% if shop.customer_accounts_enabled %}
+				{% if customer %}
+					<li>
+						<a href="/account">your account</a>
+					</li>
+				{% else %}
+					<li>
+						{{ 'login' | customer_login_link }}
+					</li>
+					{% if shop.customer_accounts_optional %}
+						<li>
+							{{ 'sign up' | customer_register_link }}
+						</li>
+					{% endif %}
+				{% endif %}
+			{% endif %}
+			<li>
+				<a href="/cart">
+					view cart
+
+					{% if cart.item_count > 0 %}
+						({{ cart.item_count }})
+					{% endif %}
+				</a>
+			</li>
+		</ul>
+
+		<ul class="top-nav2 list-flat">
+			{% for link in linklists.main-menu.links %}
+				<li>
+					<a href="{{ link.url }}">{{ link.title }}</a>
+				</li>
+			{% endfor %}
+		</ul>
+	</nav>
+</header>
+
+<div class="header">
+	<button class="header-hamburger js-nav">
+		<span class="header-hamburger-slice">Open</span>
+		<span class="header-hamburger-slice">off-canvas</span>
+		<span class="header-hamburger-slice">navigation</span>
+	</button>
+
+	<h1 class="header-logo" itemscope itemtype="http://schema.org/Organization">
+		<a href="/">
+			{{ shop.name }}
+		</a>
+	</h1>
+
+	{% unless template == 'index' or page.handle == 'ordernow' %}
+		<a href="/" class="btn btn-two header-btn">Order Now!</a>
+	{% endunless %}
+</div>

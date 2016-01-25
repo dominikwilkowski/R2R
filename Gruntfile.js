@@ -71,8 +71,8 @@ module.exports = function(grunt) {
 		// clean task
 		//----------------------------------------------------------------------------------------------------------------------------------------------------------
 		clean: {
-			pre: ['./tmp'], //delete before running
-			post: ['./tmp'], //delete after running
+			pre: ['tmp'], //delete before running
+			post: ['tmp'], //delete after running
 		},
 
 
@@ -85,7 +85,7 @@ module.exports = function(grunt) {
 					compress: true,
 				},
 				files: {
-					'./tmp/css/<%= currentVersion  %>.min.css': './dev/stylus/site.styl',
+					'tmp/css/<%= currentVersion  %>.min.css': 'dev/stylus/site.styl',
 				},
 			},
 		},
@@ -96,8 +96,8 @@ module.exports = function(grunt) {
 		//----------------------------------------------------------------------------------------------------------------------------------------------------------
 		autoprefixer: {
 			Prefix: {
-				src: './tmp/css/<%= currentVersion  %>.min.css',
-				dest: './tmp/css/<%= currentVersion  %>.min.css',
+				src: 'tmp/css/<%= currentVersion  %>.min.css',
+				dest: 'tmp/css/<%= currentVersion  %>.min.css',
 			},
 		},
 
@@ -107,11 +107,11 @@ module.exports = function(grunt) {
 		//----------------------------------------------------------------------------------------------------------------------------------------------------------
 		uglify: {
 			options: {
-				preserveComments: 'some',
+				preserveComments: false,
 			},
 			js: {
 				files: {
-					'./tmp/js/<%= currentVersion  %>.min.js': ['./dev/js/*.js', '!./dev/lib/*.js'],
+					'tmp/js/<%= currentVersion  %>.min.js': ['dev/js/*.js', '!dev/lib/*.js'],
 				},
 			},
 		},
@@ -169,9 +169,9 @@ module.exports = function(grunt) {
 				},
 				files: [{
 					expand: true,
-					cwd: './dev/img',
+					cwd: 'dev/img',
 					src: ['**/*.{png,jpg,gif}'],
-					dest: './shopify/assets/',
+					dest: 'shopify/assets/',
 				}],
 			},
 		},
@@ -182,7 +182,7 @@ module.exports = function(grunt) {
 		//----------------------------------------------------------------------------------------------------------------------------------------------------------
 		replace: {
 			css: {
-				src: ['./tmp/css/*.*'],
+				src: ['tmp/css/*.*'],
 				overwrite: true,
 				replacements: [{
 					from: '--currentVersion--',
@@ -191,7 +191,7 @@ module.exports = function(grunt) {
 			},
 
 			js: {
-				src: ['./tmp/js/*.*'],
+				src: ['tmp/js/*.*'],
 				overwrite: true,
 				replacements: [{
 					from: '--currentVersion--',
@@ -200,7 +200,7 @@ module.exports = function(grunt) {
 			},
 
 			html: {
-				src: ['./tmp/HTML/**/*.*'],
+				src: ['tmp/HTML/**/*.*'],
 				overwrite: true,
 				replacements: [{
 					from: '--currentVersion--',
@@ -219,7 +219,7 @@ module.exports = function(grunt) {
 				password: '<%= shpfy.password %>',
 				url: '<%= shpfy.url %>',
 				theme: '<%= shpfy.theme %>',
-				base: './shopify/',
+				base: 'shopify/',
 			},
 		},
 
@@ -233,9 +233,9 @@ module.exports = function(grunt) {
 			CSS: {
 				files: [{
 					expand: true,
-					cwd: './dev/css',
+					cwd: 'dev/css',
 					src: ['**/*.css'],
-					dest: './shopify/assets/',
+					dest: 'shopify/assets/',
 				}]
 			},
 
@@ -243,9 +243,9 @@ module.exports = function(grunt) {
 			Stylus: {
 				files: [{
 					expand: true,
-					cwd: './tmp/css',
+					cwd: 'tmp/css',
 					src: ['**/*.css'],
-					dest: './shopify/assets/',
+					dest: 'shopify/assets/',
 				}]
 			},
 
@@ -253,9 +253,9 @@ module.exports = function(grunt) {
 			JS: {
 				files: [{
 					expand: true,
-					cwd: './tmp/js',
+					cwd: 'tmp/js',
 					src: ['**/*.js'],
-					dest: './shopify/assets/',
+					dest: 'shopify/assets/',
 				}]
 			},
 
@@ -263,9 +263,9 @@ module.exports = function(grunt) {
 			JSLibs: {
 				files: [{
 					expand: true,
-					cwd: './dev/js/libs',
+					cwd: 'dev/js/libs',
 					src: ['**/*.js'],
-					dest: './shopify/assets/',
+					dest: 'shopify/assets/',
 				}]
 			},
 
@@ -273,9 +273,9 @@ module.exports = function(grunt) {
 			Fonts: {
 				files: [{
 					expand: true,
-					cwd: './dev/fonts',
+					cwd: 'dev/fonts',
 					src: ['**/*'],
-					dest: './shopify/assets/',
+					dest: 'shopify/assets/',
 				}],
 			},
 
@@ -284,9 +284,9 @@ module.exports = function(grunt) {
 				files: [{
 					expand: true,
 					flatten: true,
-					cwd: './dev/HTML/config',
+					cwd: 'dev/HTML/config',
 					src: ['*.*'],
-					dest: './tmp/HTML/config/',
+					dest: 'tmp/HTML/config/',
 				}],
 			},
 
@@ -295,9 +295,9 @@ module.exports = function(grunt) {
 				files: [{
 					expand: true,
 					flatten: true,
-					cwd: './dev/HTML/layout',
+					cwd: 'dev/HTML/layout',
 					src: ['*.*'],
-					dest: './tmp/HTML/layout/',
+					dest: 'tmp/HTML/layout/',
 				}],
 			},
 
@@ -306,9 +306,9 @@ module.exports = function(grunt) {
 				files: [{
 					expand: true,
 					flatten: true,
-					cwd: './dev/HTML/snippets',
+					cwd: 'dev/HTML/snippets',
 					src: ['*.*'],
-					dest: './tmp/HTML/snippets/',
+					dest: 'tmp/HTML/snippets/',
 				}],
 			},
 
@@ -317,9 +317,9 @@ module.exports = function(grunt) {
 				files: [{
 					expand: true,
 					flatten: true,
-					cwd: './dev/HTML/templates',
+					cwd: 'dev/HTML/templates',
 					src: ['*.*'],
-					dest: './tmp/HTML/templates/',
+					dest: 'tmp/HTML/templates/',
 				}],
 			},
 
@@ -328,9 +328,9 @@ module.exports = function(grunt) {
 				files: [{
 					expand: true,
 					flatten: true,
-					cwd: './tmp/HTML/config',
+					cwd: 'tmp/HTML/config',
 					src: ['*.*'],
-					dest: './shopify/config/',
+					dest: 'shopify/config/',
 				}],
 			},
 
@@ -339,9 +339,9 @@ module.exports = function(grunt) {
 				files: [{
 					expand: true,
 					flatten: true,
-					cwd: './tmp/HTML/layout',
+					cwd: 'tmp/HTML/layout',
 					src: ['*.*'],
-					dest: './shopify/layout/',
+					dest: 'shopify/layout/',
 				}],
 			},
 
@@ -350,9 +350,9 @@ module.exports = function(grunt) {
 				files: [{
 					expand: true,
 					flatten: true,
-					cwd: './tmp/HTML/snippets',
+					cwd: 'tmp/HTML/snippets',
 					src: ['*.*'],
-					dest: './shopify/snippets/',
+					dest: 'shopify/snippets/',
 				}],
 			},
 
@@ -361,9 +361,9 @@ module.exports = function(grunt) {
 				files: [{
 					expand: true,
 					flatten: true,
-					cwd: './tmp/HTML/templates',
+					cwd: 'tmp/HTML/templates',
 					src: ['*.*'],
-					dest: './shopify/templates/',
+					dest: 'shopify/templates/',
 				}],
 			},
 		},
@@ -417,8 +417,8 @@ module.exports = function(grunt) {
 		watch: {
 			css: {
 				files: [
-					'./dev/css/**/*',
-					'./dev/stylus/**/*',
+					'dev/css/**/*',
+					'dev/stylus/**/*',
 				],
 				tasks: [
 					'clean:pre',
@@ -430,7 +430,7 @@ module.exports = function(grunt) {
 
 			js: {
 				files: [
-					'./dev/js/**/*',
+					'dev/js/**/*',
 				],
 				tasks: [
 					'clean:pre',
@@ -442,7 +442,7 @@ module.exports = function(grunt) {
 
 			image: {
 				files: [
-					'./dev/img/**/*',
+					'dev/img/**/*',
 				],
 				tasks: [
 					'clean:pre',
@@ -454,11 +454,11 @@ module.exports = function(grunt) {
 
 			fonts: {
 				files: [
-					'./dev/fonts/**/*',
+					'dev/fonts/**/*',
 				],
 				tasks: [
 					'clean:pre',
-					'fonts',
+					'newer:copy:Fonts',
 					'wakeup',
 					'clean:post',
 				],
@@ -517,7 +517,7 @@ module.exports = function(grunt) {
 	]);
 
 	grunt.registerTask('fonts', [
-		'newer:copy:Fonts',
+		'copy:Fonts',
 	]);
 
 	grunt.registerTask('html', [

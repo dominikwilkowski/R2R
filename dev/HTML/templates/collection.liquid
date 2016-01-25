@@ -1,0 +1,25 @@
+{% comment %}---------------------------------------------------------------------------------------------------------------------------------------------------
+	CONTENT
+------------------------------------------------------------------------------------------------------------------------------------------------{% endcomment %}
+{% include 'product-nav' %}
+
+
+{% paginate collection.products by 12 %}
+
+	<section class="products">
+
+		<ul class="product-list">
+			{% for product in collection.products %}
+				{% include 'product-item' %}
+			{% else %}
+				<li class="product-item">
+					<p>- There are no products in this view. -</p>
+				</li>
+			{% endfor %}
+		</ul>
+
+		{% include 'pagination' %}
+
+	</section>
+
+{% endpaginate %}

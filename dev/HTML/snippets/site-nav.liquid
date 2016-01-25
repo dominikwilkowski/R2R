@@ -1,0 +1,94 @@
+{% comment %}
+	This snippet renders the navigation
+
+	Usage:
+		{% include 'site-nav' %}
+
+	Return:
+		HTML direct output
+
+	Required:
+		- none -
+{% endcomment %}
+
+<nav role="navigation" class="nav-wrapper">
+	<ul class="nav">
+		{% for link in linklists.main-menu.links %}
+			{% assign has_sub_menu = false %}
+			{% assign has_sub_categories = false %}
+			{% assign parent_link_active = false %}
+			{% assign child_list_handle = link.title | handle %}
+
+			{% if linklists[child_list_handle] and linklists[child_list_handle].links.size > 0 %}
+				{% assign has_sub_menu = true %}
+				{% for l in linklists[child_list_handle].links %}
+					{% if handle != blank and handle == l.object.handle %}
+						{% assign parent_link_active = true %}
+					{% elsif page_title == l.title %}
+						{% assign parent_link_active = true %}
+					{% endif %}
+				{% endfor %}
+			{% elsif link.type == 'collection_link' and link.object.all_tags.size > 0 %}
+				{% assign has_sub_categories = true %}
+			{% endif %}
+
+			{% assign _isShop = link.url | split: '/products' %}
+			{% if _isShop.size > 1 %}
+				{% assign _isShop = true %}
+			{% else %}
+				{% assign _isShop = link.url | split: '/collections' %}
+				{% if _isShop.size > 1 %}
+					{% assign _isShop = true %}
+				{% else %}
+					{% assign _isShop = false %}
+				{% endif %}
+			{% endif %}
+
+			<li class="nav-item
+				{% if link.active or parent_link_active %}is-active{% endif %}
+				{% if has_sub_menu or has_sub_categories %}has-dropdown{% endif %}
+				{% if forloop.first %}
+					is-first
+				{% elsif forloop.last %}
+					is-last
+				{% endif %}
+			">
+
+				<a class="nav-link
+					{% if has_sub_menu or has_sub_categories %}has-sub{% endif %}
+				" href="{{ link.url }}">
+					{{ link.title }}
+
+
+					{% if _isShop %}
+						{% if cart.item_count > 0 %}
+							<span class="nav-item-shop">({{ cart.item_count }})</span>
+						{% endif %}
+					{% endif %}
+				</a>
+
+				{% if has_sub_menu or has_sub_categories %}
+					<ul class="nav-sub">
+						{% if has_sub_menu %}
+							{% for l in linklists[child_list_handle].links %}
+								<li class="nav-sub-item nav-sub-menu
+									{% if l.active %}is-active{% endif %}
+								">
+									<a class="nav-sub-link" href="{{ l.url }}">{{ l.title }}</a>
+								</li>
+							{% endfor %}
+						{% elsif has_sub_categories %}
+							{% for tag in link.object.all_tags %}
+								<li class="nav-sub-item nav-sub-category
+									{% if current_tags contains tag %}is-active{% endif %}
+								">
+									<a class="nav-sub-link" href="{{ link.url }}/{{ tag | handle }}">{{ tag }}</a>
+								</li>
+							{% endfor %}
+						{% endif %}
+					</ul>
+				{% endif %}
+			</li>
+		{% endfor %}
+	</ul>
+</nav>

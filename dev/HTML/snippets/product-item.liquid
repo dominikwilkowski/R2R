@@ -1,0 +1,42 @@
+{% comment %}
+	This snippet prints a product item
+
+	Usage:
+		{% include 'product-item' %}
+
+	Return:
+		HTML direct output
+
+	Required:
+		- none -
+{% endcomment %}
+
+{% assign on_sale = false %}
+{% if product.compare_at_price > product.price %}
+	{% assign on_sale = true %}
+{% endif %}
+
+<li class="product-item
+	{% unless product.available %}is-soldout{% endunless %}
+	{% if on_sale %}is-onsale{% endif %}
+	{% cycle 'xs-one', 'xs-two' %}
+	{% cycle 'md-one', 'md-two', 'md-three' %}
+	">
+
+	<a class="product-item-link" href="{{ product.url | within: collection }}">
+		<img class="product-item-img" src="{{ product | img_url: 'grande' }}" alt="{{ product.featured_image.alt | escape }}">
+		<strong class="product-item-title">{{ product.title }}</strong>
+
+		<span class="product-item-price">
+			{% if product.price_varies %}From{% endif %}
+			{{ product.price | money }}
+			{% if on_sale %}
+				<s class="product-item-price-compare">{{ product.compare_at_price | money }}</s>
+			{% endif %}
+		</span>
+
+		{% comment %}Support Product Reviews app{% endcomment %}
+		<span class="shopify-product-reviews-badge" data-id="{{ product.id }}"></span>
+	</a>
+
+</li>
