@@ -1,0 +1,19 @@
+{% comment %}
+	This snippet prints the addbox for a product form
+
+	Usage:
+		{% include 'addbox' %}
+
+	Return:
+		HTML direct output
+
+	Required:
+		- none -
+{% endcomment %}
+
+<div class="addbox js-addbox">
+	<input type="hidden" id="product-select" name="id" value="{{ product.variants.first.id }}">
+	<span class="addbox-quantity js-addbox-output"></span>
+	<button class="addbox-btn addbox-btn-add js-addbox-btn" type="button" value="add" data-id="{{ product.variants.first.id }}">Add one</button>
+	<button class="addbox-btn addbox-btn-sub js-addbox-btn" type="button" value="sub" data-id="{{ product.variants.first.id }}">Remove one</button>
+</div>

@@ -28,6 +28,7 @@ var App = (function() {
 			$('.js-body').removeClass('no-js');
 
 			App.nav.init();
+			App.cart.init();
 
 			if( $('.js-gallery').length ) {
 				App.debugging('Found gallery instance', 'report');
@@ -80,10 +81,12 @@ var App = (function() {
 		//----------------------------------------------------------------------------------------------------------------------------------------------------------
 		// debugging prettiness
 		//
-		// text  string   Text to be printed to debugger
-		// code  keyword  What kind of urgency: report,error,interaction
+		// @param   text  [string]  Text to be printed to debugger
+		// @param   code  [string]  The urgency as a string: ['report', 'error', 'interaction', 'send', 'receive']
+		//
+		// @return  [none]
 		//----------------------------------------------------------------------------------------------------------------------------------------------------------
-		debugging: function( text, code ) {
+		debugging: function Debug( text, code ) {
 
 			if( code === 'report' ) {
 				if( App.DEBUG ) console.log('%c\u2611 ', 'color: green; font-size: 18px;', text);
@@ -95,6 +98,14 @@ var App = (function() {
 
 			else if( code === 'interaction' ) {
 				if( App.DEBUG ) console.log('%c\u261C ', 'color: blue; font-size: 18px;', text);
+			}
+
+			else if( code === 'send' ) {
+				if( App.DEBUG ) console.log('%c\u219D ', 'color: pink; font-size: 18px;', text);
+			}
+
+			else if( code === 'receive' ) {
+				if( App.DEBUG ) console.log('%c\u219C ', 'color: pink; font-size: 18px;', text);
 			}
 
 		}

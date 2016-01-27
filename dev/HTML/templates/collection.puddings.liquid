@@ -1,14 +1,14 @@
 {% comment %}---------------------------------------------------------------------------------------------------------------------------------------------------
-	CONTENT
+	COLLECTION VIEW FOR PUDDINGS
 ------------------------------------------------------------------------------------------------------------------------------------------------{% endcomment %}
 <section class="products">
 
 	<ul class="product-list">
 		{% for product in collection.products %}
-			{% include 'product-item' %}
+			{% include 'product-pudding' %}
 		{% else %}
 			<li class="product-item">
-				<p>- There are no products in this view. -</p>
+				<p>- There are no puddings in this view. -</p>
 			</li>
 		{% endfor %}
 	</ul>
