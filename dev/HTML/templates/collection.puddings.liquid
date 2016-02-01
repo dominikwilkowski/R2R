@@ -3,7 +3,19 @@
 ------------------------------------------------------------------------------------------------------------------------------------------------{% endcomment %}
 <section class="products">
 
-	<ul class="product-list">
+	<div class="products-key-wrapper">
+		<div class="products-key products-key-epic">
+			<span class="products-key-bubble btn btn-four">14oz - serves 2</span>
+			<img class="products-key-size" src="{{ 'epic.png' | asset_url }}">
+		</div>
+
+		<div class="products-key products-key-sumo">
+			<span class="products-key-bubble btn btn-four">40oz - serves 5</span>
+			<img class="products-key-size" src="{{ 'sumo.png' | asset_url }}">
+		</div>
+	</div>
+
+	<ul class="product-list" style="background-image: url({{ 'puddybg.jpg' | asset_url }})">
 		{% for product in collection.products %}
 			{% include 'product-pudding' %}
 		{% else %}

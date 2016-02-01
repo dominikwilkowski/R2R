@@ -470,7 +470,7 @@ module.exports = function(grunt) {
 				],
 				tasks: [
 					'clean:pre',
-					'html',
+					'newerhtml',
 					'wakeup',
 					'clean:post',
 				],
@@ -520,7 +520,7 @@ module.exports = function(grunt) {
 		'copy:Fonts',
 	]);
 
-	grunt.registerTask('html', [
+	grunt.registerTask('newerhtml', [
 		'newer:copy:HTMLtmpConfig',
 		'newer:copy:HTMLtmpLayout',
 		'newer:copy:HTMLtmpSnippets',
@@ -530,6 +530,18 @@ module.exports = function(grunt) {
 		'newer:copy:HTMLlayout',
 		'newer:copy:HTMLsnippets',
 		'newer:copy:HTMLtemplates',
+	]);
+
+	grunt.registerTask('html', [
+		'copy:HTMLtmpConfig',
+		'copy:HTMLtmpLayout',
+		'copy:HTMLtmpSnippets',
+		'copy:HTMLtmpTemplates',
+		'replace:html',
+		'copy:HTMLconfig',
+		'copy:HTMLlayout',
+		'copy:HTMLsnippets',
+		'copy:HTMLtemplates',
 	]);
 
 
@@ -544,7 +556,7 @@ module.exports = function(grunt) {
 		'js',
 		'image',
 		'fonts',
-		'html',
+		'newerhtml',
 		'clean:post',
 		'wakeup',
 		'watch',

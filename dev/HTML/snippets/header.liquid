@@ -40,9 +40,11 @@
 				<a href="/cart">
 					view cart
 
-					{% if cart.item_count > 0 %}
-						({{ cart.item_count }})
-					{% endif %}
+					<span class="js-cart">
+						{% if cart.item_count > 0 %}
+							({{ cart.item_count }})
+						{% endif %}
+					</span>
 				</a>
 			</li>
 		</ul>

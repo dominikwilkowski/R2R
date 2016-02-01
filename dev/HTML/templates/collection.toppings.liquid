@@ -3,7 +3,13 @@
 ------------------------------------------------------------------------------------------------------------------------------------------------{% endcomment %}
 <section class="products">
 
-	<ul class="product-list">
+	<div class="products-key-wrapper">
+		<div class="products-key products-key-topping">
+			<span class="products-key-bubble btn">Serves 5</span>
+		</div>
+	</div>
+
+	<ul class="product-list" style="background-image: url({{ 'toppybg.jpg' | asset_url }})">
 		{% for product in collection.products %}
 			{% include 'product-topping' %}
 		{% else %}

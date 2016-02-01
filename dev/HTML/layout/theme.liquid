@@ -81,7 +81,14 @@
 		{% include 'footer' %}
 	</div>
 
-
 	{{ '--currentVersion--.min.js' | asset_url | script_tag }}
+	<script>
+		$(function() {
+			CartJS.init({{ cart | json }}, {
+				"dataAPI": false,
+				"requestBodyClass": "is-loading",
+			});
+		});
+	</script>
 </body>
 </html>

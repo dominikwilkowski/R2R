@@ -21,11 +21,17 @@
 	{% if on_sale %}is-onsale{% endif %}
 ">
 
-	<form action="/cart/add" method="post" enctype="multipart/form-data">
+	<form class="product-form" action="/cart/add" method="post" enctype="multipart/form-data">
 
-		{{ product.title }}
+		<p class="product-title">{{ product.title }}</p>
 
-		{% include 'addbox' %}
+		<div class="product-addbox">
+			{% include 'addbox' variantType: 'Epic' %}
+		</div>
+
+		<div class="product-addbox">
+			{% include 'addbox' variantType: 'Sumo' %}
+		</div>
 	</form>
 
 </li>

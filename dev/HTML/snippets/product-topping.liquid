@@ -19,24 +19,15 @@
 <li class="product-item
 	{% unless product.available %}is-soldout{% endunless %}
 	{% if on_sale %}is-onsale{% endif %}
-	{% cycle 'xs-one', 'xs-two' %}
-	{% cycle 'md-one', 'md-two', 'md-three' %}
-	">
+">
 
-	<a class="product-item-link" href="{{ product.url | within: collection }}">
-		<img class="product-item-img" src="{{ product | img_url: 'grande' }}" alt="{{ product.featured_image.alt | escape }}">
-		<strong class="product-item-title">{{ product.title }}</strong>
+	<form class="product-form" action="/cart/add" method="post" enctype="multipart/form-data">
 
-		<span class="product-item-price">
-			{% if product.price_varies %}From{% endif %}
-			{{ product.price | money }}
-			{% if on_sale %}
-				<s class="product-item-price-compare">{{ product.compare_at_price | money }}</s>
-			{% endif %}
-		</span>
+		<p class="product-title">{{ product.title }}</p>
 
-		{% comment %}Support Product Reviews app{% endcomment %}
-		<span class="shopify-product-reviews-badge" data-id="{{ product.id }}"></span>
-	</a>
+		<div class="product-addbox">
+			{% include 'addbox' %}
+		</div>
+	</form>
 
 </li>
