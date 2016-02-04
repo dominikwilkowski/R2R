@@ -60,7 +60,7 @@ header
 .header
 	overflow hidden
 
-	&-logo
+	.header-logo
 		float left
 		font-size 30px
 
@@ -70,12 +70,20 @@ header
 		@media media-sm
 			font-size 44px
 
-	&-btn
+	.header-btn.btn
 		margin 1em 0
-		float right
+		display block
+		border-radius 0
+		clear both
+
+		@media media-sm
+			float right
+			display inline-block
+			border-radius 50%
+			clear none
 
 
-	&-hamburger
+	.header-hamburger
 		display inline-block
 		appearance none
 		-webkit-appearance none
@@ -100,7 +108,7 @@ header
 				right 0
 				z-index 100
 
-		&-slice
+		.header-hamburger-slice
 			display block
 			height 3px
 			background-color color1

@@ -1,0 +1,105 @@
+/***************************************************************************************************************************************************************
+ *
+ * Adbox styles
+ *
+ **************************************************************************************************************************************************************/
+
+
+.addbox
+	overflow hidden
+	width 100%
+	margin-bottom 6px
+	text-align right
+	transition opacity 0.2s ease
+
+	@media media-sm
+		width 180px
+
+	&.is-loading
+		opacity 0.3
+
+		.addbox-quantity:after
+			content ' '
+			position absolute
+			top 50%
+			left 50%
+			margin -13px 0 0 -13px
+			width 21px
+			height 21px
+			border 3px dotted #000
+			border-radius 50%
+			animation loading 2s infinite linear
+
+	.addbox-quantity
+		position relative
+		display inline-block
+		background #fff
+		border 1px solid #000
+		padding 6px
+		width 25px
+		text-align center
+
+	.addbox-btn-wrapper
+		overflow hidden
+		display inline-block
+		vertical-align middle
+		height 33px
+		text-align left
+		margin 6px 0
+		width 100%
+
+		@media media-sm
+			width auto
+			margin 0
+
+	.addbox-btn
+		position relative
+		-webkit-appearance none
+		overflow hidden
+		text-indent 0
+		background transparent
+		border none
+		padding 0 0 0 22px
+		margin 0
+		line-height 1
+		width auto
+		height auto
+		float left
+
+		&.addbox-btn-sub
+			float right
+
+		&:after
+			content ' '
+			position absolute
+			top 2px
+			left 2px
+			width 0
+			height 0
+
+		&.addbox-btn-add:after
+				border-bottom 13px solid #000
+				border-right 8px solid transparent
+				border-left 8px solid transparent
+				border-top 0
+
+		&.addbox-btn-sub:after
+			border-top 13px solid #000
+			border-right 8px solid transparent
+			border-left 8px solid transparent
+			border-bottom 0
+
+		@media media-sm
+			width 18px
+			height 17px
+			text-indent -99999em
+			padding 0
+			clear both
+
+
+@keyframes loading
+	from
+		transform rotate(0deg)
+
+	to
+		transform rotate(360deg)

@@ -7,7 +7,9 @@
 
 .products
 	.products-key-wrapper
+		display none
 		*zoom:1
+
 		&:before,
 		&:after
 			content:""
@@ -15,13 +17,17 @@
 		&:after
 			clear:both
 
+		@media media-sm
+			display block
+
 	.products-key
 		float left
 		margin-left 33%
 		position relative
 		width 180px
 		height 140px
-		top 18px
+		top 9px
+		left 52px
 
 		.products-key-bubble
 		.products-key-size
@@ -52,6 +58,7 @@
 
 		&.products-key-topping
 			height 53px
+			left 65px
 
 .product-list
 	list-style none
@@ -59,6 +66,9 @@
 	margin 0
 	overflow hidden
 	background #fff no-repeat right center
+
+	@media media-max-sm
+		background-image none !important
 
 .product-item
 	display block
@@ -68,7 +78,14 @@
 
 	.product-title
 		float left
-		width 33%
+		width 100%
+
+		@media media-sm
+			width 33%
 
 	.product-addbox
 		float left
+		width 100%
+
+		@media media-sm
+			width auto

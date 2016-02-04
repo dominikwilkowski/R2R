@@ -72,7 +72,13 @@
 		</a>
 	</h1>
 
-	{% unless template == 'index' or page.handle == 'ordernow' %}
-		<a href="/" class="btn btn-two header-btn">Order Now!</a>
+	{% unless
+		page.handle == 'ordernow' or
+		page.handle == 'pudding-order' or
+		page.handle == 'topping-order' or
+		template == 'collection.puddings' or
+		template == 'collection.toppings'
+	%}
+		<a href="/pages/ordernow" class="btn btn-two header-btn">Order Now!</a>
 	{% endunless %}
 </div>
