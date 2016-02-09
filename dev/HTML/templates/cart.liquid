@@ -1,3 +1,6 @@
+{% assign puddings = 0 %}
+{% assign toppings = 0 %}
+
 <div class="cart">
 	<h1 class="subtitle">TO SHIP RICE PUDDING&hellip;</h1>
 
@@ -11,12 +14,18 @@
 					<th class="cart-table-title">&nbsp;</th>
 					<th class="cart-table-price">Price</th>
 					<th class="cart-table-total">Total</th>
+					<th class="cart-table-remove"></th>
 				</tr>
 			</thead>
 
 			<tbody>
 
 				{% for item in cart.items %}
+					{% if item.product.type == 'Topping' %}
+						{% assign toppings = toppings | plus: 1 %}
+					{% else if item.product.type == 'Pudding' %}
+						{% assign puddings = puddings | plus: 1 %}
+					{% endif %}
 
 					{% assign collection_url = '/collections/all' %}
 					{% assign continue_shopping_url = collection_url %}
@@ -27,7 +36,7 @@
 						</td>
 						<td class="cart-table-title">
 							<a href="{{ collection_url }}{{ item.url }}">
-								{{ item.title }}
+								{{ item.title }} <small>({{ item.product.type }})</small>
 							</a>
 
 							{% comment %}
@@ -54,6 +63,9 @@
 						<td class="cart-table-total">
 							{{ item.line_price | money }}
 						</td>
+						<td class="cart-table-remove">
+							<a href="/cart/change?line={{ forloop.index }}&amp;quantity=0">&times;</a>
+						</td>
 					</tr>
 				{% endfor %}
 
@@ -67,7 +79,17 @@
 
 		</table>
 
-		<a class="cart-btn btn" href="/checkout">Continue</a>
+		{% if puddings == 0 and toppings > 0 %}
+			<p>
+				IF YOU WISH TO ODER ONLY TOPPINGS WITHOUT RICE PUDDING, PLEASE CALL OUR STORE AT <a href="tel:2122740008"><strong>212.274.0008</strong></a> BETWEEN
+				<strong>9:00AM AND 5:00PM MONDAY THROUGH FRIDAY</strong> AND OUR STAFF WILL BE HAPPY TO TAKE YOUR ORDER.
+			</p>
+			<p>
+				PLEASE NOTE, HOWEVER, THAT THESE SPECIAL ORDERS WILL HAVE A SUPPLEMENTAL SHIPPING CHARGE ADDED TO THE $15.00 CHARGE FOR EACH TOPPING.
+			</p>
+		{% else %}
+			<a class="cart-btn btn" href="/checkout">Continue</a>
+		{% endif %}
 	{% else %}
 
 		<div>
