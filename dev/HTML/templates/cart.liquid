@@ -2,7 +2,7 @@
 {% assign toppings = 0 %}
 
 <div class="cart">
-	<h1 class="subtitle">TO SHIP RICE PUDDING&hellip;</h1>
+	<h1 class="subtitle">Your cart</h1>
 
 	{% if cart.item_count > 0 %}
 
@@ -64,7 +64,7 @@
 							{{ item.line_price | money }}
 						</td>
 						<td class="cart-table-remove">
-							<a href="/cart/change?line={{ forloop.index }}&amp;quantity=0">&times;</a>
+							<a class="cart-table-remove-btn" href="/cart/change?line={{ forloop.index }}&amp;quantity=0">&times;</a>
 						</td>
 					</tr>
 				{% endfor %}
@@ -88,7 +88,13 @@
 				PLEASE NOTE, HOWEVER, THAT THESE SPECIAL ORDERS WILL HAVE A SUPPLEMENTAL SHIPPING CHARGE ADDED TO THE $15.00 CHARGE FOR EACH TOPPING.
 			</p>
 		{% else %}
-			<a class="cart-btn btn" href="/checkout">Continue</a>
+			<div class="cart-bottom">
+				<input class="cart-tac" id="cart-tac" type="checkbox">
+				<label class="cart-tac-label" for="cart-tac">I accept the <a href="/pages/tac">terms and conditions</a></label>
+				<div class="cart-btn-wrapper">
+					<a class="cart-btn btn" href="/checkout">Continue</a>
+				</div>
+			</div>
 		{% endif %}
 	{% else %}
 

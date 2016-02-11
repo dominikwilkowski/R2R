@@ -6,9 +6,9 @@
 
 
 .btn
-	display inline-block
+	display block
 	background-color color1
-	border-radius 50%
+	border-radius 0
 	padding 1em
 	min-width 130px
 	color #fff
@@ -21,14 +21,20 @@
 	-webkit-appearance none
 	border none
 
-	&:hover
+	@media media-sm
+		display inline-block
+		border-radius 50%
+
+	a&:hover
+	button&:hover
 		background-color color2
 		color #fff
 
 	&.btn-two
 		background-color color2
 
-		&:hover
+		a&:hover
+		button&:hover
 			background-color color1
 
 	&.btn-three

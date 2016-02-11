@@ -23,6 +23,15 @@
 			text-transform uppercase
 			text-align left
 
+		.cart-table-headline th
+		.cart-table-body .cart-table-quantity
+			font-size 14px
+			padding-right 6px
+
+			@media media-sm
+				font-size 18px
+				padding-right 15px
+
 		.cart-table-body td
 			background-color shade2
 
@@ -36,5 +45,29 @@
 			@media media-sm
 				display table-cell
 
+		.quantity
+			font-size 14px
+
+		.cart-table-remove-btn
+			padding 12px
+
+
+
+	.cart-bottom
+		margin 24px 0
+		min-height 120px
+
 	.cart-btn
 		margin 24px 0
+
+	// .cart-tac:not(:checked) + .cart-tac-label + .cart-btn-wrapper
+	.cart-btn-wrapper
+		display none
+
+	.cart-tac-label
+		margin 24px 0
+
+	.cart-tac
+		&:checked
+			&+ .cart-tac-label + .cart-btn-wrapper
+				display block
