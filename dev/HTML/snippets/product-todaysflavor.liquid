@@ -1,0 +1,16 @@
+{% comment %}
+	This snippet prints a product item for todays flavors
+
+	Usage:
+		{% include 'product-todaysflavor' %}
+
+	Return:
+		HTML direct output
+
+	Required:
+		- none -
+{% endcomment %}
+
+<li class="todaysflavor-item">
+	<p class="todaysflavor-title">{{ product.title }}</p>
+</li>

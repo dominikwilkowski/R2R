@@ -23,8 +23,10 @@
 				{% for item in cart.items %}
 					{% if item.product.type == 'Topping' %}
 						{% assign toppings = toppings | plus: 1 %}
+						{% assign link = '/collections/toppings' %}
 					{% else if item.product.type == 'Pudding' %}
 						{% assign puddings = puddings | plus: 1 %}
+						{% assign link = '/collections/pudding' %}
 					{% endif %}
 
 					{% assign collection_url = '/collections/all' %}
@@ -35,7 +37,7 @@
 							<span class="quantity">{{ item.quantity }} x</span>
 						</td>
 						<td class="cart-table-title">
-							<a href="{{ collection_url }}{{ item.url }}">
+							<a href="{{ link }}">
 								{{ item.title }} <small>({{ item.product.type }})</small>
 							</a>
 
@@ -81,14 +83,18 @@
 
 		{% if puddings == 0 and toppings > 0 %}
 			<p>
-				IF YOU WISH TO ODER ONLY TOPPINGS WITHOUT RICE PUDDING, PLEASE CALL OUR STORE AT <a href="tel:2122740008"><strong>212.274.0008</strong></a> BETWEEN
-				<strong>9:00AM AND 5:00PM MONDAY THROUGH FRIDAY</strong> AND OUR STAFF WILL BE HAPPY TO TAKE YOUR ORDER.
-			</p>
-			<p>
-				PLEASE NOTE, HOWEVER, THAT THESE SPECIAL ORDERS WILL HAVE A SUPPLEMENTAL SHIPPING CHARGE ADDED TO THE $15.00 CHARGE FOR EACH TOPPING.
+				{{ settings.cart_toppingsonly }}
 			</p>
 		{% else %}
 			<div class="cart-bottom">
+				<p>
+					{{ settings.cart_dissatisfaction }}
+				</p>
+
+				<div class="cart-bottom-tac">
+					{{ pages.tac.content }}
+				</div>
+
 				<input class="cart-tac" id="cart-tac" type="checkbox">
 				<label class="cart-tac-label" for="cart-tac">I accept the <a href="/pages/tac">terms and conditions</a></label>
 				<div class="cart-btn-wrapper">

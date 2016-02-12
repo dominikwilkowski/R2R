@@ -146,7 +146,7 @@
 		var $parent = $('.js-addbox[data-id="' + id + '"]');
 
 		$parent.attr('data-quantity', count);
-		$parent.find('.js-addbox-output').text( count );
+		$parent.find('.js-addbox-output').val( count );
 	};
 
 

@@ -7,10 +7,10 @@
 
 .addbox
 	overflow hidden
+	position relative
 	width 100%
 	margin-bottom 6px
 	text-align right
-	transition opacity 0.2s ease
 
 	@media media-sm
 		width 180px
@@ -18,12 +18,12 @@
 	&.is-loading
 		opacity 0.3
 
-		.addbox-quantity:after
+		&:after
 			content ' '
 			position absolute
-			top 50%
-			left 50%
-			margin -13px 0 0 -13px
+			top 2px
+			right 28px
+			margin 0
 			width 21px
 			height 21px
 			border 3px dotted #000
@@ -31,7 +31,6 @@
 			animation loading 2s infinite linear
 
 	.addbox-quantity
-		position relative
 		display inline-block
 		background #fff
 		border 1px solid #000

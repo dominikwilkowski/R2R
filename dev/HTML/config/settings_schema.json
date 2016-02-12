@@ -178,5 +178,135 @@
 			}
 
 		]
+	},
+	{
+		"name": "Servings",
+		"settings": [
+			{
+				"type": "header",
+				"content": "Serving Diva"
+			},
+			{
+				"type": "image",
+				"id": "servings1.png",
+				"label": "Image",
+				"max-width": 338,
+				"max-height": 268
+			},
+			{
+				"type": "textarea",
+				"id": "servings1_content",
+				"label": "Prices and weights"
+			},
+
+			{
+				"type": "header",
+				"content": "Serving Solo"
+			},
+			{
+				"type": "image",
+				"id": "servings2.png",
+				"label": "Image",
+				"max-width": 338,
+				"max-height": 268
+			},
+			{
+				"type": "textarea",
+				"id": "servings2_content",
+				"label": "Prices and weights"
+			},
+
+			{
+				"type": "header",
+				"content": "Serving Epic"
+			},
+			{
+				"type": "image",
+				"id": "servings3.png",
+				"label": "Image",
+				"max-width": 338,
+				"max-height": 268
+			},
+			{
+				"type": "textarea",
+				"id": "servings3_content",
+				"label": "Prices and weights"
+			},
+
+			{
+				"type": "header",
+				"content": "Serving Omni"
+			},
+			{
+				"type": "image",
+				"id": "servings4.png",
+				"label": "Image",
+				"max-width": 338,
+				"max-height": 268
+			},
+			{
+				"type": "textarea",
+				"id": "servings4_content",
+				"label": "Prices and weights"
+			},
+
+			{
+				"type": "header",
+				"content": "Serving Sumo"
+			},
+			{
+				"type": "image",
+				"id": "servings5.png",
+				"label": "Image",
+				"max-width": 338,
+				"max-height": 268
+			},
+			{
+				"type": "textarea",
+				"id": "servings5_content",
+				"label": "Prices and weights"
+			},
+
+			{
+				"type": "header",
+				"content": "Serving Moby"
+			},
+			{
+				"type": "image",
+				"id": "servings6.png",
+				"label": "Image",
+				"max-width": 338,
+				"max-height": 268
+			},
+			{
+				"type": "textarea",
+				"id": "servings6_content",
+				"label": "Prices and weights"
+			}
+		]
+	},
+	{
+		"name": "Cart",
+		"settings": [
+			{
+				"type": "header",
+				"content": "Cart toppings only message"
+			},
+			{
+				"type": "textarea",
+				"id": "cart_toppingsonly",
+				"label": "A message to make your customer aware that you can't just oder toppings alone."
+			},
+
+			{
+				"type": "header",
+				"content": "Cart dissatisfaction message"
+			},
+			{
+				"type": "textarea",
+				"id": "cart_dissatisfaction",
+				"label": "A message to help your customer when they are dissatisfied."
+			}
+		]
 	}
 ]
