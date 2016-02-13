@@ -1,0 +1,62 @@
+{% comment %}---------------------------------------------------------------------------------------------------------------------------------------------------
+	CONTENT
+------------------------------------------------------------------------------------------------------------------------------------------------{% endcomment %}
+<article class="content">
+	<h2 class="subtitle">{{ page.title }}</h2>
+
+	<div class="content-text">{{ page.content }}</div>
+
+
+	<div class="form">
+		{% form 'contact' %}
+			{% if form.posted_successfully? %}
+				<div class="form-msg is-ok">
+					<p>{{ 'contact.form.post_success' | t }}</p>
+				</div>
+			{% endif %}
+
+			{% if form.errors %}
+				<div class="form-msg has-error">
+					<p>
+						Your contact form has {{ form.errors | size | pluralize: 'an error', 'a few errors' }}.
+						To submit your form, make the following changes and try again:
+					</p>
+					{% for field in form.errors %}
+						<p>The {{ field | capitalize | replace: 'Body', 'Message' }} field {{ form.errors.messages[field] }}.</p>
+					{% endfor %}
+				</div>
+			{% endif %}
+
+			<ul class="form-list">
+				<li class="form-list-item">
+					<label class="form-label" for="contactFormFirstName">{{ 'contact.form.name' | t }}</label>
+					<input class="form-input" type="text" required id="contactFormFirstName" name="contact[firstname]">
+				</li>
+				<li class="form-list-item">
+					<label class="form-label" for="contactFormLastName">{{ 'contact.form.name' | t }}</label>
+					<input class="form-input" type="text" id="contactFormLastName" name="contact[lastname]">
+				</li>
+				<li class="form-list-item">
+					<label class="form-label" for="contactFormZip">Postal code</label>
+					<input class="form-input" type="text" id="contactFormZip" name="contact[zip]">
+				</li>
+				<li class="form-list-item">
+					<label class="form-label" for="contactFormEmail">{{ 'contact.form.email' | t }}</label>
+					<input class="form-input" type="email" required id="contactFormEmail" name="contact[email]">
+				</li>
+				<li class="form-list-item">
+					<label class="form-label" for="contactFormTelephone">{{ 'contact.form.phone' | t }}</label>
+					<input class="form-input" type="telephone" id="contactFormTelephone" name="contact[phone]">
+				</li>
+				<li class="form-list-item">
+					<label class="form-label" for="contactFormMessage">{{ 'contact.form.message' | t }}</label>
+					<textarea class="form-inputtext" required rows="10" id="contactFormMessage" name="contact[body]"></textarea>
+				</li>
+				<li class="form-list-item">
+					<input class="form-btn btn" type="submit" id="contactFormSubmit" value="{{ 'contact.form.send' | t }}">
+				</li>
+			</ul>
+
+		{% endform %}
+	</div>
+</article>

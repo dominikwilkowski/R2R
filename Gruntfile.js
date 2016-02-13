@@ -316,9 +316,9 @@ module.exports = function(grunt) {
 			HTMLtmpTemplates: {
 				files: [{
 					expand: true,
-					flatten: true,
+					flatten: false,
 					cwd: 'dev/HTML/templates',
-					src: ['*.*'],
+					src: ['**/*.*'],
 					dest: 'tmp/HTML/templates/',
 				}],
 			},
@@ -360,9 +360,9 @@ module.exports = function(grunt) {
 			HTMLtemplates: {
 				files: [{
 					expand: true,
-					flatten: true,
+					flatten: false,
 					cwd: 'tmp/HTML/templates',
-					src: ['*.*'],
+					src: ['**/*.*'],
 					dest: 'shopify/templates/',
 				}],
 			},
@@ -466,11 +466,24 @@ module.exports = function(grunt) {
 
 			html: {
 				files: [
-					'./dev/HTML/**/*',
+					'dev/HTML/**/*',
+					'!dev/HTML/layout/theme.liquid',
 				],
 				tasks: [
 					'clean:pre',
 					'newerhtml',
+					'wakeup',
+					'clean:post',
+				],
+			},
+
+			htmlTheme: {
+				files: [
+					'dev/HTML/layout/theme.liquid',
+				],
+				tasks: [
+					'clean:pre',
+					'theme',
 					'wakeup',
 					'clean:post',
 				],
@@ -481,11 +494,20 @@ module.exports = function(grunt) {
 					'shopify/assets/**',
 					'shopify/config/**',
 					'shopify/snippets/**',
-					'shopify/layout/**',
-					'shopify/templates/**',
+					'shopify/templates/**/*',
+					'!shopify/layout/theme.liquid',
 				],
 				tasks: [
 					'shopify',
+				],
+			},
+
+			shopifyTheme: {
+				files: [
+					'shopify/layout/theme.liquid',
+				],
+				tasks: [
+					'shopify:upload:shopify/layout/theme.liquid',
 				],
 			},
 		},
@@ -542,6 +564,12 @@ module.exports = function(grunt) {
 		'copy:HTMLlayout',
 		'copy:HTMLsnippets',
 		'copy:HTMLtemplates',
+	]);
+
+	grunt.registerTask('theme', [
+		'copy:HTMLtmpLayout',
+		'replace:html',
+		'copy:HTMLlayout',
 	]);
 
 

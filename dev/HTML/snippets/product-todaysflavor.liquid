@@ -12,5 +12,14 @@
 {% endcomment %}
 
 <li class="todaysflavor-item">
-	<p class="todaysflavor-title">{{ product.title }}</p>
+	<div class="todaysflavor-content">
+		<p class="todaysflavor-title">{{ product.title }}</p>
+
+		<div class="todaysflavor-imgs">
+			{% for tag in product.tags %}
+				{% capture image %}{{ tag }}.png{% endcapture %}
+				<img class="todaysflavor-img" src="{{ image | asset_url }}" alt="{{ tag | strip_html }}">
+			{% endfor %}
+		</div>
+	</div>
 </li>

@@ -65,7 +65,7 @@
 </head>
 
 
-<body id="{{ page_title | handle }}" class="body js-body
+<body id="{{ page_title | handle }}" class="body js-body no-js
 	{% if customer %}is-loggedin{% endif %}
 	template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }}
 ">
@@ -90,5 +90,15 @@
 			});
 		});
 	</script>
+	{% if template == 'cart' %}
+		<script>
+			$('.js-datepicker').Zebra_DatePicker({
+				direction: [2,30],
+				disabled_dates: ['* * * 1,0', {{ settings.datepicker }}],
+				format: 'D M-d-Y',
+				onSelect: App.datepicker.change,
+			});
+		</script>
+	{% endif %}
 </body>
 </html>

@@ -306,6 +306,16 @@
 				"type": "textarea",
 				"id": "cart_dissatisfaction",
 				"label": "A message to help your customer when they are dissatisfied."
+			},
+
+			{
+				"type": "header",
+				"content": "Disabled dates"
+			},
+			{
+				"type": "textarea",
+				"id": "datepicker",
+				"label": "Comma seperated list in following format (in quotation marks) \"dd mm YYYY\""
 			}
 		]
 	}
