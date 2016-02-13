@@ -1,4 +1,8 @@
-<div class="note form-success" id="ResetSuccess" style="display:none;">
+<div class="note form-success" id="ResetSuccess"
+	{% unless reset_success %}
+		style="display:none;"
+	{% endunless %}
+>
 	{{ 'customer.recover_password.success' | t }}
 </div>
 
@@ -36,7 +40,7 @@
 						{% endif %}
 					>
 					<small class="form-note">
-						<a href="#RecoverPasswordForm" onclick="showRecoverPasswordForm();return false;">{{ 'customer.login.forgot_password' | t }}</a>
+						<a class="js-toggle" data-toggle="#CustomerLoginForm" href="#RecoverPasswordForm">{{ 'customer.login.forgot_password' | t }}</a>
 					</small>
 				</li>
 			{% endif %}
@@ -57,7 +61,7 @@
 {% comment %}
 	PASSWORD RECOVERY FORM
 {% endcomment %}
-<div class="form" id="RecoverPasswordForm" style="display: none;">
+<div class="form toggle-hidden" id="RecoverPasswordForm">
 
 	<h2 class="subtitle">{{ 'customer.recover_password.title' | t }}</h2>
 	<p>{{ 'customer.recover_password.subtext' | t }}</p>
@@ -82,7 +86,7 @@
 				<input class="form-input" type="email" name="email" id="RecoverEmail" placeholder="{{ 'customer.recover_password.email' | t }}"
 					autocorrect="off" autocapitalize="off">
 				<small class="form-note">
-					<a href="#CustomerLoginForm" onclick="hideRecoverPasswordForm();return false;">{{ 'customer.recover_password.cancel' | t }}</a>
+					<a class="js-toggle" data-toggle="#RecoverPasswordForm" href="#CustomerLoginForm">{{ 'customer.recover_password.cancel' | t }}</a>
 				</small>
 			</li>
 			<li class="form-list-item">
@@ -102,21 +106,3 @@
 		<input class="btn" type="submit" value="{{ 'customer.login.guest_continue' | t }}">
 	{% endform %}
 {% endif %}
-
-<script>
-	function showRecoverPasswordForm() {
-		document.getElementById('RecoverPasswordForm').style.display = 'block';
-		document.getElementById('CustomerLoginForm').style.display='none';
-	}
-
-	function hideRecoverPasswordForm() {
-		document.getElementById('RecoverPasswordForm').style.display = 'none';
-		document.getElementById('CustomerLoginForm').style.display = 'block';
-	}
-
-	if(window.location.hash == '#recover') { showRecoverPasswordForm() }
-
-	{% if reset_success %}
-		document.getElementById('ResetSuccess').style.display = 'block';
-	{% endif %}
-</script>

@@ -35,6 +35,12 @@ var App = (function() {
 
 				App.gallery.init();
 			}
+
+			if( $('.js-toggle').length ) {
+				App.debugging('Found toggle instance', 'report');
+
+				App.toggle.init();
+			}
 		},
 
 
