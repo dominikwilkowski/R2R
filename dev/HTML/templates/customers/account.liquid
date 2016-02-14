@@ -45,38 +45,39 @@
 
 	<h3>{{ 'customer.account.details' | t }}</h3>
 
-	<h4>{{ customer.name }}</h4>
+	<div class="account-address-wrapper">
+		{% if customer.default_address != nil %}
+			<p class="account-address">
+				<strong>{{ customer.name }}</strong><br><br>
+				{{ customer.default_address.address1 }}
 
-	{% if customer.default_address != nil %}
-		<p class="account-address">
-			{{ customer.default_address.address1 }}<br>
+				{% if customer.default_address.address2 != "" %}
+					, {{ customer.default_address.address2 }}
+				{% endif %}
 
-			{% if customer.default_address.address2 != "" %}
-				{{ customer.default_address.address2 }}<br>
-			{% endif %}
+				{% if customer.default_address.city != "" %}
+					<br>{{ customer.default_address.city }}
+				{% endif %}
 
-			{% if customer.default_address.city != "" %}
-				{{ customer.default_address.city }}<br>
-			{% endif %}
+				{% if customer.default_address.province_code != "" %}
+					, {{ customer.default_address.province_code | upcase }}
+				{% endif %}
 
-			{% if customer.default_address.province_code != "" %}
-				{{ customer.default_address.province_code | upcase }}<br>
-			{% endif %}
+				{% if customer.default_address.zip != "" %}
+					, {{ customer.default_address.zip | upcase }}
+				{% endif %}
 
-			{% if customer.default_address.zip != "" %}
-				{{ customer.default_address.zip | upcase }}<br>
-			{% endif %}
+				{% if customer.default_address.country != "" %}
+					<br>{{ customer.default_address.country }}
+				{% endif %}
 
-			{% if customer.default_address.country != "" %}
-				{{ customer.default_address.country }}<br>
-			{% endif %}
+				{% if customer.default_address.phone != "" %}
+					<br>{{ customer.default_address.phone }}
+				{% endif %}
+			</p>
 
-			{% if customer.default_address.phone != "" %}
-				{{ customer.default_address.phone }}
-			{% endif %}
-		</p>
-
-	{% endif %}
+		{% endif %}
+	</div>
 
 	<p>
 		<a href="/account/addresses">{{ 'customer.account.view_addresses' | t }} ({{ customer.addresses_count }})</a>
