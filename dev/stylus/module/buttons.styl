@@ -1,0 +1,60 @@
+/***************************************************************************************************************************************************************
+ *
+ * Button styles
+ *
+ **************************************************************************************************************************************************************/
+
+
+.btn
+	display block
+	background-color color1
+	border-radius 0
+	padding 1em
+	min-width 130px
+	color #fff
+	text-align center
+	letter-spacing 1px
+	font-family brand-font1
+	text-transform uppercase
+	transition background 0.3s ease
+	appearance none
+	-webkit-appearance none
+	border none
+
+	@media media-sm
+		display inline-block
+		border-radius 50%
+
+	a&:hover
+	button&:hover
+	input&:hover
+		background-color color2
+		color #fff
+
+	&.btn-two
+		background-color color2
+
+		a&:hover
+		button&:hover
+		input&:hover
+			background-color color1
+
+	&.btn-three
+		background-color color3
+
+	&.btn-four
+		text-transform none
+		font-size 20px
+
+	&.btn-secondary
+		background transparent
+		padding 6px
+		min-width 0
+		border-radius 0
+		color #000
+
+		a&:hover
+		button&:hover
+		input&:hover
+			background-color transparent
+			color #000

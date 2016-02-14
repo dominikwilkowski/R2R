@@ -1,0 +1,53 @@
+<div class="form">
+	{% form 'create_customer' %}
+
+		<h2 class="subtitle">{{ 'customer.register.title' | t }}</h2>
+
+		{% if form.errors %}
+			<div class="form-msg has-error">
+				<p>
+					{{ form.errors | default_errors }}
+				</p>
+			</div>
+		{% endif %}
+
+		<ul class="form-list">
+			<li class="form-list-item">
+				<label class="form-label" for="FirstName">{{ 'customer.register.first_name' | t }}</label>
+				<input class="form-input" type="text" name="customer[first_name]" id="FirstName" placeholder="{{ 'customer.register.first_name' | t }}"
+					{% if form.first_name %}
+						value="{{ form.first_name }}"
+					{% endif %}
+				autocapitalize="words" autofocus>
+			</li>
+			<li class="form-list-item">
+				<label class="form-label" for="LastName">{{ 'customer.register.last_name' | t }}</label>
+				<input class="form-input" type="text" name="customer[last_name]" id="LastName" placeholder="{{ 'customer.register.last_name' | t }}"
+					{% if form.last_name %}
+						value="{{ form.last_name }}"
+					{% endif %}
+				autocapitalize="words">
+			</li>
+			<li class="form-list-item">
+				<label class="form-label" for="Email">{{ 'customer.register.email' | t }}</label>
+				<input class="form-input" type="email" name="customer[email]" id="Email" placeholder="{{ 'customer.register.email' | t }}"
+					{% if form.errors contains "email" %}
+						class="error"
+					{% elsif form.email %}
+				value="{{ form.email }}"{% endif %} autocorrect="off" autocapitalize="off">
+			</li>
+			<li class="form-list-item">
+				<label class="form-label" for="CreatePassword">{{ 'customer.register.password' | t }}</label>
+				<input class="form-input" type="password" name="customer[password]" id="CreatePassword" placeholder="{{ 'customer.register.password' | t }}"
+					{% if form.errors contains "password" %}
+						class="error"
+					{% endif %}
+				>
+			</li>
+			<li class="form-list-item">
+				<input class="form-btn btn" type="submit" value="{{ 'customer.register.submit' | t }}">
+			</li>
+		</ul>
+	{% endform %}
+
+</div>

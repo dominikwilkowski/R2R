@@ -1,0 +1,35 @@
+{% comment %}
+	This snippet prints the pagination list
+
+	Usage:
+		{% include 'pagination' %}
+
+	Return:
+		HTML direct output
+
+	Required:
+		Must be called within a {{ paginate }} block
+{% endcomment %}
+
+{% if paginate.pages > 1 %}
+	<div class="pagination">
+		<ul class="pagination-list">
+			{% for part in paginate.parts %}
+				{% if part.is_link %}
+					<li class="pagination-item">
+						{{ part.title | link_to: part.url }}
+					</li>
+				{% else %}
+					<li class="pagination-item is-active">
+						<a title="Current page">{{ part.title }}</a>
+					</li>
+				{% endif %}
+			{% endfor %}
+
+		</ul>
+
+		<span class="pagination-next">
+			{{ 'Next page' | link_to: paginate.next.url }}
+		</span>
+	</div>
+{% endif %}

@@ -1,0 +1,159 @@
+{% assign puddings = 0 %}
+{% assign toppings = 0 %}
+
+<div class="cart">
+	<h1 class="subtitle">Your cart</h1>
+
+	{% if cart.item_count > 0 %}
+
+		<table class="table">
+
+			<thead class="table-headline">
+				<tr>
+					<th class="table-quanity">Qty</th>
+					<th class="table-title">&nbsp;</th>
+					<th class="table-price">Price</th>
+					<th class="table-total">Total</th>
+					<th class="table-remove"></th>
+				</tr>
+			</thead>
+
+			<tbody>
+
+				{% assign _hasSerivce = false %}
+
+				{% for item in cart.items %}
+					{% if item.product.type == 'Topping' %}
+						{% assign toppings = toppings | plus: 1 %}
+						{% assign link = '/collections/toppings' %}
+					{% else if item.product.type == 'Pudding' %}
+						{% assign puddings = puddings | plus: 1 %}
+						{% assign link = '/collections/pudding' %}
+					{% endif %}
+
+					{% assign collection_url = '/collections/all' %}
+					{% assign continue_shopping_url = collection_url %}
+					{% if item.product.type == 'Service' %}
+						{% assign _hasSerivce = true %}
+						{% assign serivceName = item.title %}
+						{% assign serivcePrice = item.price | money %}
+					{% endif %}
+
+					{% unless item.product.type == 'Service' %}
+						<tr class="table-body">
+							<td class="table-quantity">
+								<span class="quantity">{{ item.quantity }} x</span>
+							</td>
+							<td class="table-title">
+								<a href="{{ link }}">
+									{{ item.title }} <small>({{ item.product.type }})</small>
+								</a>
+
+								{% comment %}
+									Line Item Properties
+								{% endcomment %}
+								{% assign properties_amount = item.properties | size %}
+								{% if properties_amount > 0 %}
+									<p>
+										{% for p in item.properties %}
+											{% unless p.last == blank %}
+												{{ p.first }}:
+												{% if p.last contains '/uploads/' %}
+													<a href="{{ p.last }}">{{ p.last | split: '/' | last }}</a>
+												{% else %}
+													{{ p.last }}
+												{% endif %}
+												<br>
+											{% endunless %}
+										{% endfor %}
+									</p>
+								{% endif %}
+							</td>
+							<td class="table-price">
+								{{ item.price | money }}
+							</td>
+							<td class="table-total">
+								{{ item.line_price | money }}
+							</td>
+							<td class="table-remove">
+								<a class="table-remove-btn" href="/cart/change?line={{ forloop.index }}&amp;quantity=0">&times;</a>
+							</td>
+						</tr>
+					{% endunless %}
+				{% endfor %}
+
+				{% comment %}
+					SERVICE LINE
+				{% endcomment %}
+				{% if _hasSerivce %}
+					<tr class="table-body">
+						<td class="table-quantity"></td>
+						<td class="table-title">
+							<small>{{ serivceName }}</small>
+						</td>
+						<td class="table-price"></td>
+						<td class="table-total">
+							<small>{{ serivcePrice }}</small>
+						</td>
+						<td class="table-remove"></td>
+					</tr>
+				{% endif %}
+
+				{% comment %}
+					TOTAL
+				{% endcomment %}
+				<tr class="table-total">
+					<td>
+						<strong class="table-subtotal">Total {{ cart.total_price | money }}</strong>
+					</td>
+				</tr>
+
+				{% comment %}
+					DELIVERY DATE
+				{% endcomment %}
+				<tr class="table-datepicker">
+					<td colspan="5">
+						<label for="datepicker">DESIRED DELIVERY DATE</label>
+						<input class="cart-datepicker js-datepicker" id="datepicker" type="text" name="attributes[delivery_date]" value="{{ cart.attributes['Delivery date'] }}">
+					</td>
+				</tr>
+
+			</tbody>
+
+		</table>
+
+		{% comment %}
+			WARNING OR CONTINUE BUTTON
+		{% endcomment %}
+		{% if puddings == 0 and toppings > 0 %}
+			<p>
+				{{ settings.cart_toppingsonly }}
+			</p>
+		{% else %}
+			<div class="cart-bottom">
+				<p>
+					{{ settings.cart_dissatisfaction }}
+				</p>
+
+				<div class="cart-bottom-tac">
+					{{ pages.tac.content }}
+				</div>
+
+				<input class="cart-tac" id="cart-tac" type="checkbox">
+				<label class="cart-tac-label" for="cart-tac"><strong>I accept the <a href="/pages/tac">terms and conditions</a></strong></label>
+				<div class="cart-btn-wrapper">
+					<a class="cart-btn btn" href="/checkout">Continue</a>
+				</div>
+			</div>
+		{% endif %}
+	{% else %}
+		{% comment %}
+			NOTHING IN THE CART
+		{% endcomment %}
+		<div>
+			<h2>It appears that your cart is currently empty!</h2>
+			<h3>You can continue browsing <a href="/pages/ordernow">here</a>.</h3>
+		</div>
+
+	{% endif %}
+</div>

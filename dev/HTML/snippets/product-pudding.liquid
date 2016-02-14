@@ -1,0 +1,37 @@
+{% comment %}
+	This snippet prints a product item
+
+	Usage:
+		{% include 'product-item' %}
+
+	Return:
+		HTML direct output
+
+	Required:
+		- none -
+{% endcomment %}
+
+{% assign on_sale = false %}
+{% if product.compare_at_price > product.price %}
+	{% assign on_sale = true %}
+{% endif %}
+
+<li class="product-item
+	{% unless product.available %}is-soldout{% endunless %}
+	{% if on_sale %}is-onsale{% endif %}
+">
+
+	<form class="product-form" action="/cart/add" method="post" enctype="multipart/form-data">
+
+		<p class="product-title">{{ product.title }}</p>
+
+		<div class="product-addbox">
+			{% include 'addbox' variantType: 'Epic' %}
+		</div>
+
+		<div class="product-addbox">
+			{% include 'addbox' variantType: 'Sumo' %}
+		</div>
+	</form>
+
+</li>

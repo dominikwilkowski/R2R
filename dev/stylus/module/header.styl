@@ -1,0 +1,120 @@
+/***************************************************************************************************************************************************************
+ *
+ * Header styles
+ *
+ **************************************************************************************************************************************************************/
+
+header
+	display block
+	position fixed
+	background-color #fff
+	border-top 2px solid color1
+	border-right 2px solid color1
+	box-shadow 0px 0px 0px 0px rgba(0, 0, 0, 0.43)
+	left -205px
+	top 50px
+	bottom 0
+	width 200px
+	overflow auto
+	transition left 0.3s ease, box-shadow 0.3s ease
+	z-index 200
+
+	.is-openmenu &
+		left 0
+		box-shadow 6px 0px 20px 0px rgba(0, 0, 0, 0.43)
+
+	@media media-max-sm
+		a
+			display block
+			padding 6px 0
+
+		.list-flat
+			li
+				display block
+				text-align center
+
+				&+ li:before
+					display none
+
+	@media media-sm
+		position static
+		width auto
+		background-color transparent
+		box-shadow none
+		border none
+
+	.top-nav1
+		text-align right
+
+		@media media-max-sm
+			li
+				font-size 16px
+
+	.top-nav2
+		border-top 1px solid color1
+		padding-top 8px
+
+		li
+			text-transform uppercase
+
+.header
+	overflow hidden
+
+	.header-logo
+		float left
+		font-size 30px
+
+		.is-openmenu &
+			padding 0 0 8px 45px
+
+		@media media-sm
+			font-size 44px
+
+	.header-btn.btn
+		margin 1em 0
+		clear both
+
+		@media media-sm
+			float right
+			clear none
+
+
+	.header-hamburger
+		display inline-block
+		appearance none
+		-webkit-appearance none
+		background-color transparent
+		border none
+		padding 20px
+		margin -2px 0 0 -20px
+		width 65px
+		float left
+		transition background 0.3s ease
+
+		.is-openmenu &
+			position fixed
+			background-color #fff
+
+			&:after
+				content ' '
+				position fixed
+				top 0
+				bottom 0
+				left 0
+				right 0
+				z-index 100
+
+		.header-hamburger-slice
+			display block
+			height 3px
+			background-color color1
+			text-indent -99999em
+			border none
+			padding 0
+			margin 0 0 5px 0
+
+		@media media-sm
+			display none
+
+	h1
+		display inline-block

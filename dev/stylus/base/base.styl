@@ -1,0 +1,68 @@
+/***************************************************************************************************************************************************************
+ *
+ * Base styles
+ *
+ **************************************************************************************************************************************************************/
+
+
+body
+html
+	height 100%
+	font-size 16px
+	line-height 1.2
+	padding 0
+	margin 0
+
+body
+	font-family body-font
+	background-image url(bg.jpg)
+
+html
+	-webkit-text-size-adjust 100%
+	-ms-text-size-adjust 100%
+
+a
+	color color1
+	text-decoration none
+	transition color 0.3s ease
+
+	& > img
+		border 1px solid color1
+		transition border 0.3s ease
+
+	&:hover
+		color color2
+		cursor pointer
+
+		& > img
+			border 1px solid color2
+
+.wrapper
+	max-width 990px
+	margin 0 auto
+	padding 0 12px
+	overflow hidden
+
+// main
+// 	overflow hidden
+
+.content
+	img
+		max-width 100%
+		border 1px solid color1
+
+		@media media-max-sm
+			float none !important
+			display block
+			margin 12px auto
+
+.content-text
+	margin-bottom 18px
+
+h1
+	font-family brand-font2
+	text-transform uppercase
+	font-size 44px
+	letter-spacing 1px
+	color color1
+	margin 0.3em 0

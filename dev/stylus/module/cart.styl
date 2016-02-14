@@ -1,0 +1,37 @@
+/***************************************************************************************************************************************************************
+ *
+ * Cart styles
+ *
+ **************************************************************************************************************************************************************/
+
+
+.cart
+	.quantity
+		font-size 14px
+
+	.cart-bottom
+		margin 24px 0
+		min-height 376px
+
+	.cart-bottom-tac
+		max-height 150px
+		overflow auto
+		padding 0 12px 12px 12px
+		margin-bottom 18px
+		border 1px solid color1
+		background rgba(255, 255, 255, 0.6)
+
+	.cart-btn
+		margin 24px 0
+
+	// .cart-tac:not(:checked) + .cart-tac-label + .cart-btn-wrapper
+	.cart-btn-wrapper
+		display none
+
+	.cart-tac-label
+		margin 24px 0
+
+	.cart-tac
+		&:checked
+			&+ .cart-tac-label + .cart-btn-wrapper
+				display block

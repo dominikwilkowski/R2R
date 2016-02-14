@@ -1,0 +1,18 @@
+{% comment %}---------------------------------------------------------------------------------------------------------------------------------------------------
+	CONTENT
+------------------------------------------------------------------------------------------------------------------------------------------------{% endcomment %}
+<section class="products">
+
+	<ul class="product-list">
+		{% for product in collection.products %}
+			{% include 'product-item' %}
+		{% else %}
+			<li class="product-item">
+				<p>- There are no products in this view. -</p>
+			</li>
+		{% endfor %}
+	</ul>
+
+	{% include 'pagination' %}
+
+</section>

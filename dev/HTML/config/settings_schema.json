@@ -1,0 +1,322 @@
+[
+	{
+		"name": "Welcome",
+		"settings": [
+			{
+				"type": "paragraph",
+				"content": "If you have any issues with this theme please create an issue here: https://github.com/dominikwilkowski/R2R/issues"
+			}
+		]
+	},
+	{
+		"name": "General",
+		"settings": [
+			{
+				"type": "header",
+				"content": "Facebook"
+			},
+			{
+				"type": "checkbox",
+				"id": "social_facebook_enabled",
+				"label": "Enabled?"
+			},
+			{
+				"type": "text",
+				"id": "social_facebook",
+				"label": "URL"
+			},
+
+			{
+				"type": "header",
+				"content": "Twitter"
+			},
+			{
+				"type": "checkbox",
+				"id": "social_twitter_enabled",
+				"label": "Enabled?"
+			},
+			{
+				"type": "text",
+				"id": "social_twitter",
+				"label": "URL"
+			},
+
+			{
+				"type": "header",
+				"content": "YouTube"
+			},
+			{
+				"type": "checkbox",
+				"id": "social_youtube_enabled",
+				"label": "Enabled?"
+			},
+			{
+				"type": "text",
+				"id": "social_youtube",
+				"label": "URL"
+			},
+
+			{
+				"type": "header",
+				"content": "eMail"
+			},
+			{
+				"type": "checkbox",
+				"id": "social_email_enabled",
+				"label": "Enabled?"
+			},
+			{
+				"type": "text",
+				"id": "social_email",
+				"label": "URL"
+			}
+		]
+	},
+	{
+		"name": "Gallery",
+		"settings": [
+			{
+				"type": "header",
+				"content": "Slide #1"
+			},
+			{
+				"type": "checkbox",
+				"id": "slide_1_enabled",
+				"label": "Enabled?"
+			},
+			{
+				"type": "image",
+				"id": "slide_1_image.jpg",
+				"label": "Image",
+				"max-width": 1980,
+				"max-height": 1980
+			},
+
+			{
+				"type": "header",
+				"content": "Slide #2"
+			},
+			{
+				"type": "checkbox",
+				"id": "slide_2_enabled",
+				"label": "Enabled?"
+			},
+			{
+				"type": "image",
+				"id": "slide_2_image.jpg",
+				"label": "Image",
+				"max-width": 1980,
+				"max-height": 1980
+			},
+
+			{
+				"type": "header",
+				"content": "Slide #3"
+			},
+			{
+				"type": "checkbox",
+				"id": "slide_3_enabled",
+				"label": "Enabled?"
+			},
+			{
+				"type": "image",
+				"id": "slide_3_image.jpg",
+				"label": "Image",
+				"max-width": 1980,
+				"max-height": 1980
+			},
+
+			{
+				"type": "header",
+				"content": "Slide #4"
+			},
+			{
+				"type": "checkbox",
+				"id": "slide_4_enabled",
+				"label": "Enabled?"
+			},
+			{
+				"type": "image",
+				"id": "slide_4_image.jpg",
+				"label": "Image",
+				"max-width": 1980,
+				"max-height": 1980
+			},
+
+			{
+				"type": "header",
+				"content": "Slide #5"
+			},
+			{
+				"type": "checkbox",
+				"id": "slide_5_enabled",
+				"label": "Enabled?"
+			},
+			{
+				"type": "image",
+				"id": "slide_5_image.jpg",
+				"label": "Image",
+				"max-width": 1980,
+				"max-height": 1980
+			},
+
+			{
+				"type": "header",
+				"content": "Slide #6"
+			},
+			{
+				"type": "checkbox",
+				"id": "slide_6_enabled",
+				"label": "Enabled?"
+			},
+			{
+				"type": "image",
+				"id": "slide_6_image.jpg",
+				"label": "Image",
+				"max-width": 1980,
+				"max-height": 1980
+			}
+
+		]
+	},
+	{
+		"name": "Servings",
+		"settings": [
+			{
+				"type": "header",
+				"content": "Serving Diva"
+			},
+			{
+				"type": "image",
+				"id": "servings1.png",
+				"label": "Image",
+				"max-width": 338,
+				"max-height": 268
+			},
+			{
+				"type": "textarea",
+				"id": "servings1_content",
+				"label": "Prices and weights"
+			},
+
+			{
+				"type": "header",
+				"content": "Serving Solo"
+			},
+			{
+				"type": "image",
+				"id": "servings2.png",
+				"label": "Image",
+				"max-width": 338,
+				"max-height": 268
+			},
+			{
+				"type": "textarea",
+				"id": "servings2_content",
+				"label": "Prices and weights"
+			},
+
+			{
+				"type": "header",
+				"content": "Serving Epic"
+			},
+			{
+				"type": "image",
+				"id": "servings3.png",
+				"label": "Image",
+				"max-width": 338,
+				"max-height": 268
+			},
+			{
+				"type": "textarea",
+				"id": "servings3_content",
+				"label": "Prices and weights"
+			},
+
+			{
+				"type": "header",
+				"content": "Serving Omni"
+			},
+			{
+				"type": "image",
+				"id": "servings4.png",
+				"label": "Image",
+				"max-width": 338,
+				"max-height": 268
+			},
+			{
+				"type": "textarea",
+				"id": "servings4_content",
+				"label": "Prices and weights"
+			},
+
+			{
+				"type": "header",
+				"content": "Serving Sumo"
+			},
+			{
+				"type": "image",
+				"id": "servings5.png",
+				"label": "Image",
+				"max-width": 338,
+				"max-height": 268
+			},
+			{
+				"type": "textarea",
+				"id": "servings5_content",
+				"label": "Prices and weights"
+			},
+
+			{
+				"type": "header",
+				"content": "Serving Moby"
+			},
+			{
+				"type": "image",
+				"id": "servings6.png",
+				"label": "Image",
+				"max-width": 338,
+				"max-height": 268
+			},
+			{
+				"type": "textarea",
+				"id": "servings6_content",
+				"label": "Prices and weights"
+			}
+		]
+	},
+	{
+		"name": "Cart",
+		"settings": [
+			{
+				"type": "header",
+				"content": "Cart toppings only message"
+			},
+			{
+				"type": "textarea",
+				"id": "cart_toppingsonly",
+				"label": "A message to make your customer aware that you can't just oder toppings alone."
+			},
+
+			{
+				"type": "header",
+				"content": "Cart dissatisfaction message"
+			},
+			{
+				"type": "textarea",
+				"id": "cart_dissatisfaction",
+				"label": "A message to help your customer when they are dissatisfied."
+			},
+
+			{
+				"type": "header",
+				"content": "Disabled dates"
+			},
+			{
+				"type": "textarea",
+				"id": "datepicker",
+				"label": "Comma seperated list in following format (in quotation marks) \"dd mm YYYY\""
+			}
+		]
+	}
+]

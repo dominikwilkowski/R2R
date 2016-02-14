@@ -1,0 +1,29 @@
+{% comment %}
+	This snippet prints the footer
+
+	Usage:
+		{% include 'footer' %}
+
+	Return:
+		HTML direct output
+
+	Required:
+		- none -
+{% endcomment %}
+
+<footer>
+
+	<ul class="bottom list-flat list-flat-sm">
+		{% for link in linklists.footer.links %}
+			{% if link.title == 'linebreak' %}
+				</ul>
+				<ul class="list-flat list-flat-sm">
+			{% else %}
+				<li>
+					<a href="{{ link.url }}">{{ link.title }}</a>
+				</li>
+			{% endif %}
+		{% endfor %}
+	</ul>
+
+</footer>

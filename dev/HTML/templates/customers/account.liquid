@@ -1,0 +1,85 @@
+<h2 class="subtitle">{{ 'customer.account.title' | t }}</h2>
+
+<div class="account">
+	<h3>{{ 'customer.orders.title' | t }}</h3>
+
+	{% paginate customer.orders by 20 %}
+
+		{% if customer.orders.size != 0 %}
+			<div class="table-wrapper">
+				<table class="table">
+					<thead class="table-headline">
+						<tr>
+							<th>{{ 'customer.orders.order_number' | t }}</th>
+							<th>{{ 'customer.orders.date' | t }}</th>
+							<th>{{ 'customer.orders.payment_status' | t }}</th>
+							<th>{{ 'customer.orders.fulfillment_status' | t }}</th>
+							<th>{{ 'customer.orders.total' | t }}</th>
+						</tr>
+					</thead>
+					<tbody>
+						{% for order in customer.orders %}
+							<tr class="table-body">
+								<td>{{ order.name | link_to: order.customer_url }}</td>
+								<td>{{ order.created_at | date: "%b %d, %Y" }}</td>
+								<td>{{ order.financial_status_label }}</td>
+								<td>{{ order.fulfillment_status_label }}</td>
+								<td>{{ order.total_price | money }}</td>
+							</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+			</div>
+		{% else %}
+
+			<p>{{ 'customer.orders.none' | t }}</p>
+
+		{% endif %}
+
+		{% if paginate.pages > 1 %}
+			{% include 'pagination-custom' %}
+		{% endif %}
+
+	{% endpaginate %}
+
+
+	<h3>{{ 'customer.account.details' | t }}</h3>
+
+	<div class="account-address-wrapper">
+		{% if customer.default_address != nil %}
+			<p class="account-address">
+				<strong>{{ customer.name }}</strong><br><br>
+				{{ customer.default_address.address1 }}
+
+				{% if customer.default_address.address2 != "" %}
+					, {{ customer.default_address.address2 }}
+				{% endif %}
+
+				{% if customer.default_address.city != "" %}
+					<br>{{ customer.default_address.city }}
+				{% endif %}
+
+				{% if customer.default_address.province_code != "" %}
+					, {{ customer.default_address.province_code | upcase }}
+				{% endif %}
+
+				{% if customer.default_address.zip != "" %}
+					, {{ customer.default_address.zip | upcase }}
+				{% endif %}
+
+				{% if customer.default_address.country != "" %}
+					<br>{{ customer.default_address.country }}
+				{% endif %}
+
+				{% if customer.default_address.phone != "" %}
+					<br>{{ customer.default_address.phone }}
+				{% endif %}
+			</p>
+
+		{% endif %}
+	</div>
+
+	<p>
+		<a href="/account/addresses">{{ 'customer.account.view_addresses' | t }} ({{ customer.addresses_count }})</a>
+	</p>
+</div>

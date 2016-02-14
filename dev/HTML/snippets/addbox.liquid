@@ -1,0 +1,41 @@
+{% comment %}
+	This snippet prints the addbox for a product form
+
+	Usage:
+		{% include 'addbox' variantType: 'Epic' %}
+
+	Return:
+		HTML direct output
+
+	Required:
+		{{ variantType }}  string  Variant type name
+{% endcomment %}
+
+{% assign ID = product.variants.first.id %}
+{% if product.variants.size > 1 %}
+	{% for variant in product.variants %}
+		{% if variantType == variant.title %}
+			{% assign ID = variant.id %}
+		{% endif %}
+	{% endfor %}
+{% endif %}
+
+{% assign quantity = 0 %}
+{% for item in cart.items %}
+	{% if ID == item.id %}
+		{% assign quantity = item.quantity %}
+	{% endif %}
+{% endfor %}
+
+
+<div class="addbox js-addbox" data-id="{{ ID }}" data-quantity="{{ quantity }}">
+	{% if variantType.size > 0 %}
+		<span class="addbox-label">{{ variantType }}</span>
+	{% endif %}
+	<input type="hidden" id="product-select" name="id" value="{{ ID }}">
+	<input type="text" class="addbox-quantity js-addbox-output" value="{{ quantity }}" readonly>
+	<div class="addbox-btn-wrapper">
+		<button class="addbox-btn addbox-btn-add js-addbox-btn" type="button" data-value="add" data-id="{{ ID }}">Add one</button>
+		<button class="addbox-btn addbox-btn-sub js-addbox-btn" type="button" data-value="sub" data-id="{{ ID }}">Remove one</button>
+	</div>
+</div>

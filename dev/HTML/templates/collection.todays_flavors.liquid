@@ -1,0 +1,72 @@
+{% comment %}---------------------------------------------------------------------------------------------------------------------------------------------------
+	COLLECTION VIEW FOR TODAY'S FLAVORS
+------------------------------------------------------------------------------------------------------------------------------------------------{% endcomment %}
+{% assign content = collection.description | split: '[todays flavors]' %}
+
+<div class="content">
+	{{ content[0] }}
+</div>
+
+<h2 class="subtitle">{{ collection.title }}</h2>
+
+<section class="todaysflavor">
+
+	<ul class="todaysflavor-list">
+		{% for product in collection.products %}
+			{% include 'product-todaysflavor' %}
+		{% else %}
+			<li class="todaysflavor-item">
+				<p>- There are no toppings in this view. -</p>
+			</li>
+		{% endfor %}
+	</ul>
+
+	{% include 'pagination' %}
+
+</section>
+
+
+<ul class="servings">
+	<li class="serving">
+		<img class="serving-img" src="{{ 'servings1.png' | asset_url }}" alt="{{ settings.servings1 | strip_html }}">
+		<h3 class="serving-headline">Diva</h3>
+		<p class="serving-content">
+			{{ settings.servings1_content }}
+		</p>
+	</li>
+	<li class="serving">
+		<img class="serving-img" src="{{ 'servings2.png' | asset_url }}" alt="{{ settings.servings2 | strip_html }}">
+		<h3 class="serving-headline">Solo</h3>
+		<p class="serving-content">
+			{{ settings.servings2_content }}
+		</p>
+	</li>
+	<li class="serving">
+		<img class="serving-img" src="{{ 'servings3.png' | asset_url }}" alt="{{ settings.servings3 | strip_html }}">
+		<h3 class="serving-headline">Epic</h3>
+		<p class="serving-content">
+			{{ settings.servings3_content }}
+		</p>
+	</li>
+	<li class="serving">
+		<img class="serving-img" src="{{ 'servings4.png' | asset_url }}" alt="{{ settings.servings4 | strip_html }}">
+		<h3 class="serving-headline">Omni</h3>
+		<p class="serving-content">
+			{{ settings.servings4_content }}
+		</p>
+	</li>
+	<li class="serving">
+		<img class="serving-img" src="{{ 'servings5.png' | asset_url }}" alt="{{ settings.servings5 | strip_html }}">
+		<h3 class="serving-headline">Sumo</h3>
+		<p class="serving-content">
+			{{ settings.servings5_content }}
+		</p>
+	</li>
+	<li class="serving">
+		<img class="serving-img" src="{{ 'servings6.png' | asset_url }}" alt="{{ settings.servings6 | strip_html }}">
+		<h3 class="serving-headline">Moby</h3>
+		<p class="serving-content">
+			{{ settings.servings6_content }}
+		</p>
+	</li>
+</ul>

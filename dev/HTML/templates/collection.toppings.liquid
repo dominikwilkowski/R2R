@@ -1,0 +1,32 @@
+{% comment %}---------------------------------------------------------------------------------------------------------------------------------------------------
+	COLLECTION VIEW FOR TOPPINGS
+------------------------------------------------------------------------------------------------------------------------------------------------{% endcomment %}
+<h2 class="subtitle">{{ collection.title }}</h2>
+
+<section class="products">
+
+	<div class="products-key-wrapper">
+		<div class="products-key products-key-topping">
+			<span class="products-key-bubble btn">Serves 5</span>
+		</div>
+	</div>
+
+	<ul class="product-list" style="background-image: url({{ 'toppybg.jpg' | asset_url }})">
+		{% for product in collection.products %}
+			{% include 'product-topping' %}
+		{% else %}
+			<li class="product-item">
+				<p>- There are no toppings in this view. -</p>
+			</li>
+		{% endfor %}
+	</ul>
+
+	{% include 'pagination' %}
+
+</section>
+
+<section class="bottom">
+	<a class="btn" href="/cart">Continue</a>
+
+	<div class="bottom-content content">{{ collection.description }}</div>
+</section>

@@ -1,0 +1,29 @@
+/***************************************************************************************************************************************************************
+ *
+ * Footer styles
+ *
+ **************************************************************************************************************************************************************/
+
+footer
+	.bottom
+		border-top 1px solid color1
+		padding-top 8px
+
+	.list-flat
+		@media media-max-sm
+			li
+				float right
+				text-align right
+				font-size 16px
+
+				&:nth-child(odd)
+					float left
+					text-align left
+					clear both
+
+				&+ li:before
+					display none
+
+				a
+					display block
+					padding 6px

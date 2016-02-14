@@ -1,0 +1,16 @@
+{% comment %}---------------------------------------------------------------------------------------------------------------------------------------------------
+	CONTENT
+------------------------------------------------------------------------------------------------------------------------------------------------{% endcomment %}
+
+<div class="js-gallery gallery">
+	{% for slide in (1..30) %}
+		{% capture enabled %}slide_{{ slide }}_enabled{% endcapture %}
+		{% assign enabled = settings[enabled] %}
+
+		{% capture image %}slide_{{ slide }}_image.jpg{% endcapture %}
+
+		{% if enabled %}
+			<img src="{{ image | asset_url }}" alt="RICE TO RICHES">
+		{% endif %}
+	{% endfor %}
+</div>

@@ -1,0 +1,44 @@
+<div class="content index">
+	{% paginate blog.articles by 1 %}
+
+		{% for article in blog.articles %}
+
+			<article class="index-article
+				{% if forloop.first %}is-first{% endif %}
+				{% if forloop.last %}is-last{% endif %}
+			">
+
+				<a class="index-link" href="{{ article.url }}">
+					<h3 class="index-subline">
+						{% if article.tags.size > 0 %}
+							{% for tag in article.tags %}
+								{{ tag }}{% unless forloop.last %}, {% endunless %}
+							{% endfor %}
+						{% endif %}
+					</h3>
+
+					<h2 class="index-title">{{ article.title }}</h2>
+				</a>
+
+				<div class="index-content">
+					<a class="index-link" href="{{ article.url }}">
+						{% if article.excerpt.size > 0 %}
+							{{ article.excerpt }}
+						{% else %}
+							<p>{{ article.content | strip_html | truncatewords: 120 }}</p>
+						{% endif %}
+					</a>
+				</div>
+				<p>
+					<a class="index-read-more" href="{{ article.url }}">Read more →</a>
+				</p>
+			</article>
+		{% endfor %}
+
+		{% if paginate.pages > 1 %}
+			<div class="pagination">
+			{{ paginate | default_pagination | replace: 'Previous', 'Newer articles' | replace: 'Next', 'Older articles' }}
+		{% endif %}
+
+	{% endpaginate %}
+</div>
