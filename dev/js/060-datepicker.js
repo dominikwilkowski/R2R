@@ -18,6 +18,13 @@
 		var date = $('.js-datepicker').val();
 		var _isSaturday = false;
 
+		if( date.length > 3 ) {
+			$('.js-cartbottom').addClass('has-delivery');
+		}
+		else {
+			$('.js-cartbottom').removeClass('has-delivery');
+		}
+
 		if( date.substring(0, 3) === 'Sat' ) {
 			_isSaturday = true;
 		}
