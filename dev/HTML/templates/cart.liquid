@@ -111,10 +111,16 @@
 				{% comment %}
 					DELIVERY DATE
 				{% endcomment %}
+				{% assign delivery = cart.attributes['Delivery date'] %}
+				{% if delivery == nil %}
+					{% assign delivery = 'please choose' %}
+				{% endif %}
+
 				<tr class="table-datepicker">
 					<td colspan="5">
 						<label for="datepicker">DESIRED DELIVERY DATE</label>
-						<input class="cart-datepicker js-datepicker" id="datepicker" type="text" name="attributes[delivery_date]" value="{{ cart.attributes['Delivery date'] }}">
+						<input class="cart-datepicker js-datepicker" id="datepicker" type="text" name="attributes[delivery_date]"
+							value="{{ delivery }}">
 					</td>
 				</tr>
 
@@ -130,21 +136,27 @@
 				{{ settings.cart_toppingsonly }}
 			</p>
 		{% else %}
-			<div class="cart-bottom">
-				<p>
-					{{ settings.cart_dissatisfaction }}
-				</p>
+			<div class="cart-bottom js-cartbottom
+				{% if delivery == 'please choose' %}
+					has-nodelivery
+				{% endif %}
+			">
+				<div class="cart-bottom-wrapper">
+					<p>
+						{{ settings.cart_dissatisfaction }}
+					</p>
 
-				<div class="cart-bottom-tac">
-					{{ pages.tac.content }}
-				</div>
+					<div class="cart-bottom-tac">
+						{{ pages.tac.content }}
+					</div>
 
-				<input class="cart-tac" id="cart-tac" type="checkbox">
-				<label class="cart-tac-label" for="cart-tac"><strong>I accept the <a href="/pages/tac">terms and conditions</a></strong></label>
-				<div class="cart-btn-wrapper">
-					<a class="cart-btn btn" href="/checkout">Continue</a>
+					<input class="cart-tac" id="cart-tac" type="checkbox">
+					<label class="cart-tac-label" for="cart-tac"><strong>I accept the <a href="/pages/tac">terms and conditions</a></strong></label>
+					<div class="cart-btn-wrapper">
+						<a class="cart-btn btn" href="/checkout">Continue</a>
+					</div>
+								</div>
 				</div>
-			</div>
 		{% endif %}
 	{% else %}
 		{% comment %}
