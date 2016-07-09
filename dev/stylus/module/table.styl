@@ -42,6 +42,16 @@
 		@media media-sm
 			font-size 18px
 
+	.table-body.table-body-greeting
+		border-bottom 6px solid #fff
+
+		td
+			position relative
+
+			p
+				text-transform none
+				margin .5em 0
+
 	.table-total td
 	.table-footer td
 		background-color #fff
@@ -62,11 +72,15 @@
 			border 0.05em solid color1
 
 	.table-price
-	.table-total
 		display none
 
 		@media media-sm
 			display table-cell
+
+	.table-subtotal-addition
+		display block
+		text-transform none
+		font-size 0.7em
 
 	.table-remove-btn
 		padding 12px

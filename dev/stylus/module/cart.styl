@@ -24,6 +24,17 @@
 			.cart-bottom-wrapper
 				display none
 
+	.card-greetingcard
+		width 100%
+		box-sizing border-box
+		margin-top 1em
+		height 4.3em
+		padding 0.9em
+		font-family r2rfont
+		letter-spacing 1px
+		-webkit-appearance none
+		border 1px solid color1
+
 	.cart-bottom-tac
 		max-height 150px
 		overflow auto
@@ -36,13 +47,19 @@
 		margin 24px 0
 
 	// .cart-tac:not(:checked) + .cart-tac-label + .cart-btn-wrapper
-	.cart-btn-wrapper
+	.cart-btn-wrapper a
 		display none
 
 	.cart-tac-label
 		margin 24px 0
 
 	.cart-tac
+		&+ .cart-tac-label + .cart-btn-wrapper span
+			opacity 0.5
+
 		&:checked
-			&+ .cart-tac-label + .cart-btn-wrapper
-				display block
+			&+ .cart-tac-label + .cart-btn-wrapper a
+				display inline-block
+
+			&+ .cart-tac-label + .cart-btn-wrapper span
+				display none

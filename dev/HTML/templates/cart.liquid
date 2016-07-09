@@ -103,8 +103,20 @@
 					TOTAL
 				{% endcomment %}
 				<tr class="table-total">
-					<td>
+					<td colspan="5">
 						<strong class="table-subtotal">Total {{ cart.total_price | money }}</strong>
+						<small class="table-subtotal-addition">{{ settings.cart_totalmsg }}</small>
+					</td>
+				</tr>
+
+				{% comment %}
+					GREETING CARD
+				{% endcomment %}
+				<tr class="table-body table-body-greeting">
+					<td colspan="5">
+						<label for="card-greetingcard"><strong>Greeting card</strong></label>
+						<p>{{ settings.cart_greetingcardmsg }}</p>
+						<textarea class="card-greetingcard" id="card-greetingcard" name="attributes[greeting_card]" maxlength="140"></textarea>
 					</td>
 				</tr>
 
@@ -154,9 +166,10 @@
 					<label class="cart-tac-label" for="cart-tac"><strong>I accept the <a href="/pages/tac">terms and conditions</a></strong></label>
 					<div class="cart-btn-wrapper">
 						<a class="cart-btn btn" href="/checkout">Continue</a>
+						<span class="cart-btn btn" href="/checkout">Continue</span>
 					</div>
-								</div>
 				</div>
+			</div>
 		{% endif %}
 	{% else %}
 		{% comment %}
