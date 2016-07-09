@@ -290,6 +290,26 @@
 		"settings": [
 			{
 				"type": "header",
+				"content": "Greeting card message"
+			},
+			{
+				"type": "textarea",
+				"id": "cart_totalmsg",
+				"label": "The message shown next to the total of your cart."
+			},
+
+			{
+				"type": "header",
+				"content": "Greeting card message"
+			},
+			{
+				"type": "textarea",
+				"id": "cart_greetingcardmsg",
+				"label": "The message that is shown above the greeting card bix in the cart."
+			},
+
+			{
+				"type": "header",
 				"content": "Cart toppings only message"
 			},
 			{

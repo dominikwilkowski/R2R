@@ -8,7 +8,7 @@
 @css {
 	.Zebra_DatePicker *,
 	.Zebra_DatePicker *:after,
-	.Zebra_DatePicker *:before { -moz-box-sizing: content-box !important; -webkit-box-sizing: content-box !important; box-sizing: content-box !important }
+	.Zebra_DatePicker *:before { -moz-box-sizing: content-box; -webkit-box-sizing: content-box; box-sizing: content-box; }
 	.Zebra_DatePicker { position: absolute; background: #4b0000; border: 3px solid #4b0000; z-index: 1200; font-family: Tahoma, Arial, Helvetica, sans-serif; font-size: 13px; top: 0 }
 	.Zebra_DatePicker * { margin: 0; padding: 0; color: #000; background: transparent; border: none }
 	.Zebra_DatePicker table { border-collapse: collapse; border-spacing: 0; width: auto; table-layout: auto; }
@@ -56,6 +56,7 @@
 
 button
 	&.Zebra_DatePicker_Icon
+		box-sizing content-box
 		background-color color1
 		border-radius 0
 		padding 1em
