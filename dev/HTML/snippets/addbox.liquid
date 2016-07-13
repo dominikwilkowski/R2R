@@ -33,7 +33,8 @@
 		<span class="addbox-label">{{ variantType }}</span>
 	{% endif %}
 	<input type="hidden" id="product-select" name="id" value="{{ ID }}">
-	<input type="text" class="addbox-quantity js-addbox-output" value="{{ quantity }}" readonly autocomplete="off">
+	<input type="hidden" class="addbox-quantity-input js-addbox-output" value="{{ quantity }}" readonly autocomplete="off">
+	<span class="addbox-quantity js-addbox-output-span">{{ quantity }}</span>
 	<div class="addbox-btn-wrapper">
 		<button class="addbox-btn addbox-btn-add js-addbox-btn" type="button" data-value="add" data-id="{{ ID }}">Add one</button>
 		<button class="addbox-btn addbox-btn-sub js-addbox-btn" type="button" data-value="sub" data-id="{{ ID }}">Remove one</button>
