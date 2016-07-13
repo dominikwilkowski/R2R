@@ -16,6 +16,7 @@
 		App.debugging( 'Datepicker changed', 'interaction' );
 
 		var date = $('.js-datepicker').val();
+		var greetingcard = $('.js-greetingcard').val();
 		var _isSaturday = false;
 
 		if( date.length > 3 ) {
@@ -30,6 +31,7 @@
 		}
 
 		CartJS.setAttribute('Delivery date', date);
+		CartJS.setAttribute('Greeting Card', greetingcard);
 
 		$('.js-datepicker').prop('disabled', true);
 		$('.js-datepicker').parent().addClass('is-loading');

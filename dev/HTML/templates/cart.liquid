@@ -112,11 +112,13 @@
 				{% comment %}
 					GREETING CARD
 				{% endcomment %}
+				{% assign greetingcard = cart.attributes['Greeting Card'] %}
+
 				<tr class="table-body table-body-greeting">
 					<td colspan="5">
 						<label for="card-greetingcard"><strong>Greeting card</strong></label>
 						<p>{{ settings.cart_greetingcardmsg }}</p>
-						<textarea class="card-greetingcard" id="card-greetingcard" name="attributes[greeting_card]" maxlength="140"></textarea>
+						<textarea class="card-greetingcard js-greetingcard" id="card-greetingcard" name="attributes[greeting_card]" maxlength="140">{{ greetingcard }}</textarea>
 					</td>
 				</tr>
 
