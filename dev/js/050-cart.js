@@ -20,7 +20,6 @@
 		$('.js-addbox-btn').on('click', function() {
 			var $this = $(this);
 			var $parent = $this.parents('.js-addbox');
-			var $output = $parent.find('.js-addbox-output');
 			var ID = $this.attr('data-id');
 			var operation = $this.attr('data-value');
 
@@ -146,7 +145,8 @@
 		var $parent = $('.js-addbox[data-id="' + id + '"]');
 
 		$parent.attr('data-quantity', count);
-		$parent.find('.js-addbox-output').val( count );
+		$parent.find('.js-addbox-output').val( count ); //update the hidden input
+		$parent.find('.js-addbox-output-span').text( count ); //update the span
 	};
 
 
